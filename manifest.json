@@ -1,0 +1,28 @@
+
+{
+    "manifest_version": 3,
+    "name": "Arev",
+    "version": "1.0.0",
+    "description": "Transform your new tab into a beautiful, weather-responsive experience. Clean, minimalist design that adapts to your local weather—no clutter, just serenity.",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "geolocation",
+        "tabs"
+    ],
+    "background": {
+        "service_worker": "js/background.js",
+        "type": "module"
+    },
+    "chrome_url_overrides": {
+        "newtab": "index.html"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "icons": {
+        "16": "assets/logo/icon_16.png",
+        "48": "assets/logo/icon_48.png",
+        "128": "assets/logo/icon_128.png"
+    }
+}
