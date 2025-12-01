@@ -2,22 +2,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/new-tab.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Arev</title>
 </head>
 <body>
-        <h1>Arev weather extension new tab</h1>
-        <button id="cache-purge-button" >Purge Cache</button>
-        <div id="weather-container">
-            <h1>Weather</h1>
-            <p>Temperature: <span id="temperature"></span></p>
-            <p>Weather: <span id="weather"></span></p>
-            <p>Humidity: <span id="humidity"></span></p>
-            <p>Wind Speed: <span id="wind-speed"></span></p>
-            <p>Wind Direction: <span id="wind-direction"></span></p>
-            <p>Wind Gust: <span id="wind-gust"></span></p>
-            <p>Wind Chill: <span id="wind-chill"></span></p>
-            <p>Wind Chill: <span id="wind-chill"></span></p>
-        </div>
+      <section id="main-container">
+        <main id="weather-container">
+            <header id="weather-header">
+                <h2 class="location-city">Norrköping,sweden</h2>
+                <p class="weather-time">2025-12-01 10:00</p>
+            </header>
+            <section id="weather-content">
+                <!-- weather icons -->
+                 <section class="weather-icons">
+                    <img src="assets/icons/svg/clear-day.svg" alt="clear" class="weather-icon">
+                    <p class="weather-description">clear sky</p>
+                 </section>
+                 <!-- weather temperature -->
+                 <section class="weather-temperature">
+                    <h1 class="weather-temperature-value">10°</h1>
+                    <p class="weather-temperature-feels-like">10°C</p>
+                    <p class="weather-temperature-wind-speed">10 m/s</p>
+                    <p class="weather-temperature-humidity">10%</p>
+                 </section>
+            </section>
+            <footer id="weather-footer">
+                <!-- clothes recommendation -->
+                 <p class="clothes-recommendation">clothes recommendation</p>
+
+            </footer>
+
+        <!--  Photograph credits -->
+          
+        </main>
+
+        <section id="photograph-credits">
+            <p class="photograph-credits-text">photograph by <span class="photograph-credits-name">name</span></p>
+          </section>
+      </section>
 
         
         <script src="js/new-tab.js" type="module"></script>
