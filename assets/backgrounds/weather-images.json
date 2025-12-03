@@ -125,7 +125,7 @@
   {
     "weather": "fog",
     "folder": "assets/backgrounds/fog",
-    "codes": [45, 48],
+    "codes": [4, 5, 6, 7, 8, 9, 10, 11, 12, 45, 48],
     "photos": [
       {
         "number": 18,
@@ -162,7 +162,7 @@
   {
     "weather": "drizzle",
     "folder": "assets/backgrounds/drizzle",
-    "codes": [51, 53, 55, 56, 57],
+    "codes": [20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 51, 53, 55, 56, 57],
     "photos": [
       {
         "number": 23,
@@ -211,7 +211,7 @@
   {
     "weather": "rain",
     "folder": "assets/backgrounds/rain",
-    "codes": [61, 63, 65, 66, 67, 80, 81, 82],
+    "codes": [14, 15, 16, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 46, 47, 49, 50, 52, 54, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 80, 81, 82, 83, 84],
     "photos": [
       {
         "number": 30,
@@ -266,7 +266,7 @@
   {
     "weather": "snow",
     "folder": "assets/backgrounds/snow",
-    "codes": [71, 73, 75, 77, 85, 86],
+    "codes": [71, 72, 73, 74, 75, 76, 77, 78, 79, 85, 86, 87, 88],
     "photos": [
       {
         "number": 38,
@@ -345,7 +345,7 @@
   {
     "weather": "thunderstorm",
     "folder": "assets/backgrounds/thunderstorm",
-    "codes": [95, 96, 99],
+    "codes": [13, 17, 95, 96, 97, 98, 99],
     "photos": [
       {
         "number": 50,
@@ -474,7 +474,7 @@
   {
     "weather": "tornado",
     "folder": "assets/backgrounds/tornado",
-    "codes": [95, 96, 99],
+    "codes": [19],
     "photos": [
       {
         "number": 68,
@@ -499,7 +499,7 @@
   {
     "weather": "windy",
     "folder": "assets/backgrounds/windy",
-    "codes": [2, 3],
+    "codes": [18],
     "photos": [
       {
         "number": 71,
@@ -536,7 +536,7 @@
   {
     "weather": "hail",
     "folder": "assets/backgrounds/hail",
-    "codes": [96, 99],
+    "codes": [89, 90, 91, 92, 93, 94, 96, 99],
     "photos": [
       {
         "number": 76,

@@ -22,12 +22,8 @@ async function getPositionByGeolocation() {
 
 async function getLocationByIp() {
     const response = await chrome.runtime.sendMessage({ type: 'getLocation' });
-    if(response) {
-        return response;
-        
-    }else {
-        return null;
-    }
+    if(response.error) return null;
+    return response;
 }
 
 async function getWeatherByCoords(latitude, longitude) {
@@ -75,6 +71,15 @@ const setup = async () => {
 
     console.log(position);
     console.log(weather || null);
+    // const testCurrentWeather = {
+    //     current: {
+    //         temperature_2m: 4,
+    //         apparent_temperature: 10,
+    //         weathercode: 99,//heavy snow,
+    //         relative_humidity_2m: 70,
+    //         wind_speed_10m: 2
+    //     }
+    // }
     
     render(position, weather);
 

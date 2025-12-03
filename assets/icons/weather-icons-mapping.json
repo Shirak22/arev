@@ -23,11 +23,269 @@
     "day": "overcast-day.svg",
     "night": "overcast-night.svg"
   },
+  "4": {
+    "description": "Smoke",
+    "icon": "smoke.svg",
+    "day": "extreme-day-smoke.svg",
+    "night": "extreme-night-smoke.svg"
+  },
+  "5": {
+    "description": "Haze",
+    "icon": "haze.svg",
+    "day": "haze-day.svg",
+    "night": "haze-night.svg"
+  },
+  "6": {
+    "description": "Dust",
+    "icon": "dust.svg",
+    "day": "dust-day.svg",
+    "night": "dust-night.svg"
+  },
+  "7": {
+    "description": "Dust or sand",
+    "icon": "dust-wind.svg",
+    "day": "dust-day.svg",
+    "night": "dust-night.svg"
+  },
+  "8": {
+    "description": "Dust storm",
+    "icon": "dust-wind.svg",
+    "day": "dust-day.svg",
+    "night": "dust-night.svg"
+  },
+  "9": {
+    "description": "Dust storm (severe)",
+    "icon": "dust-wind.svg",
+    "day": "dust-day.svg",
+    "night": "dust-night.svg"
+  },
+  "10": {
+    "description": "Mist",
+    "icon": "mist.svg",
+    "day": "fog-day.svg",
+    "night": "fog-night.svg"
+  },
+  "11": {
+    "description": "Shallow fog",
+    "icon": "fog.svg",
+    "day": "fog-day.svg",
+    "night": "fog-night.svg"
+  },
+  "12": {
+    "description": "Continuous shallow fog",
+    "icon": "fog.svg",
+    "day": "fog-day.svg",
+    "night": "fog-night.svg"
+  },
+  "13": {
+    "description": "Lightning visible",
+    "icon": "lightning-bolt.svg",
+    "day": "thunderstorms-day.svg",
+    "night": "thunderstorms-night.svg"
+  },
+  "14": {
+    "description": "Precipitation in sight",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "15": {
+    "description": "Precipitation reaching ground",
+    "icon": "rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "16": {
+    "description": "Precipitation near station",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "17": {
+    "description": "Thunderstorm without precipitation",
+    "icon": "thunderstorms.svg",
+    "day": "thunderstorms-day.svg",
+    "night": "thunderstorms-night.svg"
+  },
+  "18": {
+    "description": "Squalls",
+    "icon": "wind.svg",
+    "day": "wind.svg",
+    "night": "wind.svg"
+  },
+  "19": {
+    "description": "Funnel cloud",
+    "icon": "tornado.svg",
+    "day": "tornado.svg",
+    "night": "tornado.svg"
+  },
+  "20": {
+    "description": "Drizzle (intermittent)",
+    "icon": "drizzle.svg",
+    "day": "partly-cloudy-day-drizzle.svg",
+    "night": "partly-cloudy-night-drizzle.svg"
+  },
+  "21": {
+    "description": "Drizzle (continuous)",
+    "icon": "drizzle.svg",
+    "day": "overcast-day-drizzle.svg",
+    "night": "overcast-night-drizzle.svg"
+  },
+  "22": {
+    "description": "Drizzle (intermittent, slight)",
+    "icon": "drizzle.svg",
+    "day": "partly-cloudy-day-drizzle.svg",
+    "night": "partly-cloudy-night-drizzle.svg"
+  },
+  "23": {
+    "description": "Drizzle (continuous, slight)",
+    "icon": "drizzle.svg",
+    "day": "overcast-day-drizzle.svg",
+    "night": "overcast-night-drizzle.svg"
+  },
+  "24": {
+    "description": "Drizzle (intermittent, moderate)",
+    "icon": "drizzle.svg",
+    "day": "partly-cloudy-day-drizzle.svg",
+    "night": "partly-cloudy-night-drizzle.svg"
+  },
+  "25": {
+    "description": "Drizzle (continuous, moderate)",
+    "icon": "drizzle.svg",
+    "day": "overcast-day-drizzle.svg",
+    "night": "overcast-night-drizzle.svg"
+  },
+  "26": {
+    "description": "Drizzle (intermittent, heavy)",
+    "icon": "extreme-drizzle.svg",
+    "day": "extreme-day-drizzle.svg",
+    "night": "extreme-night-drizzle.svg"
+  },
+  "27": {
+    "description": "Drizzle (continuous, heavy)",
+    "icon": "extreme-drizzle.svg",
+    "day": "extreme-day-drizzle.svg",
+    "night": "extreme-night-drizzle.svg"
+  },
+  "28": {
+    "description": "Freezing drizzle (slight)",
+    "icon": "drizzle.svg",
+    "day": "overcast-day-drizzle.svg",
+    "night": "overcast-night-drizzle.svg"
+  },
+  "29": {
+    "description": "Freezing drizzle (moderate or heavy)",
+    "icon": "extreme-drizzle.svg",
+    "day": "extreme-day-drizzle.svg",
+    "night": "extreme-night-drizzle.svg"
+  },
+  "30": {
+    "description": "Rain (intermittent, slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "31": {
+    "description": "Rain (continuous, slight)",
+    "icon": "rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "32": {
+    "description": "Rain (intermittent, moderate)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "33": {
+    "description": "Rain (continuous, moderate)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "34": {
+    "description": "Rain (intermittent, heavy)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
+  "35": {
+    "description": "Rain (continuous, heavy)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
+  "36": {
+    "description": "Freezing rain (slight)",
+    "icon": "rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "37": {
+    "description": "Freezing rain (moderate or heavy)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
+  "38": {
+    "description": "Rain or drizzle (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "39": {
+    "description": "Rain or drizzle (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "40": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "41": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "42": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
+  "43": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "44": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
   "45": {
     "description": "Foggy",
     "icon": "fog-day.svg",
     "day": "fog-day.svg",
     "night": "fog-night.svg"
+  },
+  "46": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
+  "47": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
   },
   "48": {
     "description": "Depositing rime fog",
@@ -35,17 +293,41 @@
     "day": "fog-day.svg",
     "night": "fog-night.svg"
   },
+  "49": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "50": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
   "51": {
     "description": "Light drizzle",
     "icon": "drizzle.svg",
     "day": "partly-cloudy-day-drizzle.svg",
     "night": "partly-cloudy-night-drizzle.svg"
   },
+  "52": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
   "53": {
     "description": "Moderate drizzle",
     "icon": "drizzle.svg",
     "day": "overcast-day-drizzle.svg",
     "night": "overcast-night-drizzle.svg"
+  },
+  "54": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
   },
   "55": {
     "description": "Dense drizzle",
@@ -65,17 +347,47 @@
     "day": "extreme-day-drizzle.svg",
     "night": "extreme-night-drizzle.svg"
   },
+  "58": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
+  "59": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "60": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
   "61": {
     "description": "Slight rain",
     "icon": "rain.svg",
     "day": "partly-cloudy-day-rain.svg",
     "night": "partly-cloudy-night-rain.svg"
   },
+  "62": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
   "63": {
     "description": "Moderate rain",
     "icon": "overcast-rain.svg",
     "day": "overcast-day-rain.svg",
     "night": "overcast-night-rain.svg"
+  },
+  "64": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
   },
   "65": {
     "description": "Heavy rain",
@@ -95,14 +407,44 @@
     "day": "extreme-day-rain.svg",
     "night": "extreme-night-rain.svg"
   },
+  "68": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "69": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
+  "70": {
+    "description": "Rain showers (violent)",
+    "icon": "extreme-rain.svg",
+    "day": "extreme-day-rain.svg",
+    "night": "extreme-night-rain.svg"
+  },
   "71": {
     "description": "Slight snow fall",
     "icon": "snow.svg",
     "day": "partly-cloudy-day-snow.svg",
     "night": "partly-cloudy-night-snow.svg"
   },
+  "72": {
+    "description": "Snow showers (slight)",
+    "icon": "snow.svg",
+    "day": "snow.svg",
+    "night": "snow.svg"
+  },
   "73": {
     "description": "Moderate snow fall",
+    "icon": "snow.svg",
+    "day": "snow.svg",
+    "night": "snow.svg"
+  },
+  "74": {
+    "description": "Snow showers (moderate or heavy)",
     "icon": "overcast-snow.svg",
     "day": "overcast-day-snow.svg",
     "night": "overcast-night-snow.svg"
@@ -113,11 +455,29 @@
     "day": "extreme-day-snow.svg",
     "night": "extreme-night-snow.svg"
   },
+  "76": {
+    "description": "Snow showers (violent)",
+    "icon": "extreme-snow.svg",
+    "day": "extreme-day-snow.svg",
+    "night": "extreme-night-snow.svg"
+  },
   "77": {
     "description": "Snow grains",
+    "icon": "snowflake.svg",
+    "day": "snowflake.svg",
+    "night": "snowflake.svg"
+  },
+  "78": {
+    "description": "Snow showers (slight)",
     "icon": "snow.svg",
-    "day": "overcast-day-snow.svg",
-    "night": "overcast-night-snow.svg"
+    "day": "partly-cloudy-day-snow.svg",
+    "night": "partly-cloudy-night-snow.svg"
+  },
+  "79": {
+    "description": "Snow showers (moderate or heavy)",
+    "icon": "snow.svg",
+    "day": "snow.svg",
+    "night": "snow.svg"
   },
   "80": {
     "description": "Slight rain showers",
@@ -137,17 +497,77 @@
     "day": "extreme-day-rain.svg",
     "night": "extreme-night-rain.svg"
   },
+  "83": {
+    "description": "Rain showers (slight)",
+    "icon": "rain.svg",
+    "day": "partly-cloudy-day-rain.svg",
+    "night": "partly-cloudy-night-rain.svg"
+  },
+  "84": {
+    "description": "Rain showers (moderate or heavy)",
+    "icon": "overcast-rain.svg",
+    "day": "overcast-day-rain.svg",
+    "night": "overcast-night-rain.svg"
+  },
   "85": {
     "description": "Slight snow showers",
     "icon": "snow.svg",
-    "day": "partly-cloudy-day-snow.svg",
-    "night": "partly-cloudy-night-snow.svg"
+    "day": "snow.svg",
+    "night": "snow.svg"
   },
   "86": {
     "description": "Heavy snow showers",
     "icon": "extreme-snow.svg",
     "day": "extreme-day-snow.svg",
     "night": "extreme-night-snow.svg"
+  },
+  "87": {
+    "description": "Snow showers (slight)",
+    "icon": "snow.svg",
+    "day": "partly-cloudy-day-snow.svg",
+    "night": "partly-cloudy-night-snow.svg"
+  },
+  "88": {
+    "description": "Snow showers (moderate or heavy)",
+    "icon": "snow.svg",
+    "day": "snow.svg",
+    "night": "snow.svg"
+  },
+  "89": {
+    "description": "Hail (slight)",
+    "icon": "hail.svg",
+    "day": "partly-cloudy-day-hail.svg",
+    "night": "partly-cloudy-night-hail.svg"
+  },
+  "90": {
+    "description": "Hail (moderate or heavy)",
+    "icon": "overcast-hail.svg",
+    "day": "overcast-day-hail.svg",
+    "night": "overcast-night-hail.svg"
+  },
+  "91": {
+    "description": "Hail (violent)",
+    "icon": "extreme-hail.svg",
+    "day": "extreme-day-hail.svg",
+    "night": "extreme-night-hail.svg"
+  },
+  "92": {
+    "description": "Hail (slight)",
+    "icon": "hail.svg",
+    "day": "partly-cloudy-day-hail.svg",
+    "night": "partly-cloudy-night-hail.svg"
+  },
+  "93": {
+    "description": "Hail (moderate or heavy)",
+    "icon": "overcast-hail.svg",
+    "day": "overcast-day-hail.svg",
+    "night": "overcast-night-hail.svg"
+  },
+  "94": {
+    "description": "Hail (violent)",
+    "icon": "extreme-hail.svg",
+    "day": "extreme-day-hail.svg",
+    "night": "extreme-night-hail.svg"
   },
   "95": {
     "description": "Thunderstorm",
@@ -158,8 +578,20 @@
   "96": {
     "description": "Thunderstorm with slight hail",
     "icon": "thunderstorms-day.svg",
-    "day": "thunderstorms-day.svg",
-    "night": "thunderstorms-night.svg"
+    "day": "thunderstorms-day-overcast.svg",
+    "night": "thunderstorms-night-overcast.svg"
+  },
+  "97": {
+    "description": "Thunderstorm with rain",
+    "icon": "thunderstorms-rain.svg",
+    "day": "thunderstorms-day-rain.svg",
+    "night": "thunderstorms-night-rain.svg"
+  },
+  "98": {
+    "description": "Thunderstorm with snow",
+    "icon": "thunderstorms-snow.svg",
+    "day": "thunderstorms-day-snow.svg",
+    "night": "thunderstorms-night-snow.svg"
   },
   "99": {
     "description": "Thunderstorm with heavy hail",
@@ -168,4 +600,3 @@
     "night": "thunderstorms-night-extreme.svg"
   }
 }
-
