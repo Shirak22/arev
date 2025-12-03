@@ -18,21 +18,23 @@
       <section id="main-container">
         <main id="weather-container">
             <header id="weather-header">
-                <h2 class="location-city">Norrköping,sweden</h2>
+                <h3 class="location-city">Norrköping,sweden</h3>
                 <p class="weather-time">2025-12-01 10:00</p>
             </header>
             <section id="weather-content">
                 <!-- weather icons -->
                  <section class="weather-icons">
                     <img src="assets/icons/svg/clear-day.svg" alt="clear" class="weather-icon">
-                    <p class="weather-description">clear sky</p>
+                    <h3 class="weather-description">clear sky</h3>
                  </section>
                  <!-- weather temperature -->
                  <section class="weather-temperature">
-                    <h1 class="weather-temperature-value">10°</h1>
-                    <p class="weather-temperature-feels-like">10°C</p>
-                    <p class="weather-temperature-wind-speed">10 m/s</p>
-                    <p class="weather-temperature-humidity">10%</p>
+                    <h1 class="weather-temperature-value">12</h1>
+                    <p>Feels like <span class="weather-temperature-feels-like">10</span>°C</p>
+                    <div class="weather-temperature-details">
+                        <p>wind speed <span class="weather-temperature-wind-speed-value"></span></span> m/s</p>
+                        <p>humidity <span class="weather-temperature-humidity-value"></span></span>%</p>
+                    </div>
                  </section>
             </section>
             <footer id="weather-footer">
@@ -46,13 +48,14 @@
         </main>
 
         <section id="photograph-credits">
-            <p class="photograph-credits-text">photograph by <span class="photograph-credits-name">name</span></p>
+            <a class="photograph-credits-link" target="_blank">
+                <p>photograph by <span class="photograph-credits-name">name</span></p>
+            </a>
           </section>
       </section>
 
         
         <script src="js/new-tab.js" type="module"></script>
-        <script src="js/cache-purge.js" type="module"></script>
        
 </body>
 </html>

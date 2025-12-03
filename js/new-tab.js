@@ -1,6 +1,6 @@
 import { getFromCache, storeToCache } from "./cache.js";
-import getWeatherDescription from "./weather/weather-description.js";
-
+import render from "./render/render.js";
+import { loadWeatherIconsMapping } from "./weather/weather-icon.js";
 
 
 
@@ -43,26 +43,7 @@ async function getWeatherByCoords(latitude, longitude) {
     }
 }
 
-const renderOnScreen = (location, weather) => {
-    const weatherContainer = document.getElementById("weather-container");
-    
-    if(location && weather ){
-        weatherContainer.innerHTML =  `
-        <h1>Weather</h1>
-        <p>City: <span id="city">${location.city}</span></p>
-        <p>Country: <span id="country">${location.country}</span></p>
-        <p>time: <span id="time">${weather.time}</span></p>
-        <p>temperature: <span id="time">${weather.temperature_2m}</span></p>
-        <p>feels like: <span id="temperature">${weather.apparent_temperature.toFixed(1)}°C</span></p>
-        <p>Weather: <span id="weather">${getWeatherDescription(weather.weathercode)}</span></p>
-        <p>Humidity: <span id="humidity">${weather.relative_humidity_2m}</span></p>
-        <p>Wind Speed: <span id="wind-speed">${weather.wind_speed_10m}</span></p>
-        <p>Weather Code: <span id="weather-code">${weather.weathercode}</span></p>
-        `
-    }
-    if(!weather) weatherContainer.innerHTML =`<h1>No weather data.</h1>`;
-    if(!location) weatherContainer.innerHTML =`<h1>${location.error}/h1>`;
-}
+
 
 
 let position = null; 
@@ -71,6 +52,8 @@ let cachedPosition = null ;
 let cachedWeather = null; 
 
 const setup = async () => {
+  // Ensure weather icons mapping is loaded before rendering
+  await loadWeatherIconsMapping();
   
   cachedPosition  = await getFromCache('position');
   cachedWeather = await getFromCache('weather'); 
@@ -93,7 +76,7 @@ const setup = async () => {
     console.log(position);
     console.log(weather || null);
     
-    //renderOnScreen(position,weather.current); 
+    render(position, weather);
 
     
 }   
