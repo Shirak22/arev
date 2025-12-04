@@ -2,6 +2,7 @@ import getWeatherBackground from "../weather/weather-background.js";
 import getWeatherDescription from "../weather/weather-description.js";
 import getWeatherIcon from "../weather/weather-icon.js";
 import generateWardrobeAdvice from "../weather/weather-advice.js";
+import renderLoader from "./loader.js";
 
 const render = (position, weather) => {
     const mainContainer = document.querySelector('#main-container');

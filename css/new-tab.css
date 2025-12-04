@@ -17,6 +17,9 @@
 
 body {
     background-color: #aaa;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
 }
 
 h1,h2,h3,p,span {
@@ -42,8 +45,8 @@ span {font-size: 16px;}
 
 
 #main-container {
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     display: flex;
     justify-content: center; 
     align-items: center;
@@ -51,6 +54,9 @@ span {font-size: 16px;}
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    margin: 0;
+    padding: 0;
+
 
 }
 
@@ -59,13 +65,14 @@ span {font-size: 16px;}
     height: 810px;
     background-color: rgba(0,0,0,.5);
     border-radius: 56px;
-    overflow: hidden;
     padding: 50px 0 ; 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     gap: 0;    
+    position: relative;
+
 }
 
 #weather-content{
@@ -137,9 +144,11 @@ span {font-size: 16px;}
 }
 .clothes-recommendation {
     background-color: rgba(0,0,0,.5);
-    border-radius: 19px;
+    border-radius: 12px;
     padding: 5px 27px;
-    max-width: 100%;
+    max-width: 80%;
+    min-width: 70%;
+    margin:0 auto;
 
 }
 .photograph-credits-link {
@@ -147,7 +156,349 @@ span {font-size: 16px;}
     color: #fff;
     font-size: 12px;
 }
+.weather-forecast {
+    position: absolute;
+    top: 0%;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap:10px;
+    align-items: center;
+    margin:0 -10px;
+    transform:translate(50%, 0%);
+    transition: transform 0.3s ease;
+    width: auto;
+    /* border: 2px dashed blue; */
+    
+
+}
+
+.slide-right{
+    transform:translate(100%, -0%);
+    transition: transform 1s ease;
+}
+.weather-forecast-title{
+    rotate: 90deg;
+    transform-origin: 0 50%;
+    transform:translate(-50%, -50%);
+   text-wrap: nowrap;
+    background-color: rgba(0,0,0,.9); 
+    border-radius: 19px;
+    padding: 5px 27px;
+   flex:0 1 0;
+   cursor: pointer;
+}
+.weather-forecast-title span {
+    font-weight: 700;
+}
+.weather-forecast-icon {
+    width: 100%;
+    max-width: 100px;
+}
+.weather-forecast-days{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: space-between;
+    max-height: 188px; 
+    gap:10px;
+    opacity: 0;
+    flex:0 1 100%;
+    transition: opacity 0.3s ease;
+}
+.visible{
+    animation: fade-in 0.5s .7s ease forwards;
+}
+
+.weather-forecast-day{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,.9);
+    border-radius: 19px;
+    padding: 5px 27px;
+    gap: 5px;
+    max-width: 150px;
+    width: 100%; 
+   
+}
+.weather-forecast-day p { font-size: 12px;}
+.weather-forecast-day .weather-forecast-day-description {
+    font-size: 16px;
+    font-weight: 500;
+    color: #F59E0B;
+    text-transform: capitalize;
+    text-align: center;
+    text-wrap: wrap;
+    overflow-wrap: break-word;
+}
 
 #weather-footer{
     margin :auto 0 0 0;
+}
+
+
+@keyframes fade-in{
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out{
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+
+/* Skeleton Loader Styles */
+.loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #aaa;
+}
+
+#main-container-loader {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#weather-container-loader {
+    width: 516px;
+    height: 810px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 56px;
+    padding: 50px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0;
+    position: relative;
+}
+
+/* Forecast skeleton */
+.weather-forecast-loader {
+    position: absolute;
+    top: 0%;
+    right: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    margin: 0 -10px;
+    transform: translate(50%, 0%);
+    width: auto;
+}
+
+.weather-forecast-days-loader {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    align-items: space-between;
+    max-height: 188px;
+    gap: 10px;
+    flex: 0 1 100%;
+}
+
+.skeleton-forecast-day {
+    width: 150px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 19px;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-forecast-title {
+    rotate: 90deg;
+    transform-origin: 0 50%;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 19px;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Header skeleton */
+#weather-header-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    margin-bottom: 20px;
+}
+
+.skeleton-location {
+    width: 200px;
+    height: 32px;
+    margin-bottom: 3px;
+}
+
+.skeleton-time {
+    width: 180px;
+    height: 16px;
+}
+
+/* Content skeleton */
+#weather-content-loader {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 0 0 20px 0;
+    width: 100%;
+    align-items: center;
+}
+
+.weather-icons-loader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.skeleton-icon {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-description {
+    width: 120px;
+    height: 24px;
+}
+
+.weather-temperature-loader {
+    margin: auto 0 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    width: 100%;
+    align-items: center;
+    gap: 15px;
+}
+
+.skeleton-temperature {
+    width: 200px;
+    height: 128px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    animation: shimmer 1.5s infinite;
+}
+
+.skeleton-feels-like {
+    width: 150px;
+    height: 16px;
+}
+
+.weather-temperature-details-loader {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    gap: 20px;
+}
+
+.skeleton-detail {
+    width: 100px;
+    height: 16px;
+}
+
+/* Footer skeleton */
+#weather-footer-loader {
+    margin: auto 0 0 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.skeleton-recommendation {
+    width: 70%;
+    max-width: 80%;
+    min-width: 70%;
+    height: 30px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Credits skeleton */
+#photograph-credits-loader {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 20px;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 19px;
+    padding: 5px 27px;
+}
+
+.skeleton-credits {
+    width: 120px;
+    height: 14px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Skeleton text elements */
+.skeleton-text {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+    animation: shimmer 1.5s infinite;
+}
+
+/* Shimmer animation */
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.skeleton-text,
+.skeleton-icon,
+.skeleton-temperature,
+.skeleton-forecast-day,
+.skeleton-forecast-title,
+.skeleton-recommendation,
+.skeleton-credits {
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.1) 100%
+    );
+    background-size: 2000px 100%;
+    animation: shimmer 1.5s infinite;
 }

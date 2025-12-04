@@ -17,20 +17,27 @@
 <body>
       <section id="main-container">
         <main id="weather-container">
+                <!-- 3 days forecast -->
+                <section class="weather-forecast">
+                    <section class="weather-forecast-days">
+                    </section>
+                    <p class="weather-forecast-title">3 days <span>forecast</span></p>
+    
+                 </section>
             <header id="weather-header">
-                <h3 class="location-city">Norrköping,sweden</h3>
-                <p class="weather-time">2025-12-01 10:00</p>
+                <h3 class="location-city"></h3>
+                <p class="weather-time"></p>
             </header>
             <section id="weather-content">
                 <!-- weather icons -->
                  <section class="weather-icons">
-                    <img src="assets/icons/svg/clear-day.svg" alt="clear" class="weather-icon">
-                    <h3 class="weather-description">clear sky</h3>
+                    <img src="assets/icons/svg/star.svg" alt="Loading..." class="weather-icon">
+                    <h3 class="weather-description"></h3>
                  </section>
                  <!-- weather temperature -->
                  <section class="weather-temperature">
-                    <h1 class="weather-temperature-value">12</h1>
-                    <p>Feels like <span class="weather-temperature-feels-like">10</span>°C</p>
+                    <h1 class="weather-temperature-value"></h1>
+                    <p>Feels like <span class="weather-temperature-feels-like"></span>°C</p>
                     <div class="weather-temperature-details">
                         <p>wind speed <span class="weather-temperature-wind-speed-value"></span></span> m/s</p>
                         <p>humidity <span class="weather-temperature-humidity-value"></span></span>%</p>
@@ -39,22 +46,22 @@
             </section>
             <footer id="weather-footer">
                 <!-- clothes recommendation -->
-                 <p class="clothes-recommendation">clothes recommendation</p>
+                 <p class="clothes-recommendation">Loading...</p>
 
             </footer>
 
         <!--  Photograph credits -->
           
         </main>
-
+    
         <section id="photograph-credits">
             <a class="photograph-credits-link" target="_blank">
-                <p>photograph by <span class="photograph-credits-name">name</span></p>
+                <p>photograph by <span class="photograph-credits-name"></span></p>
             </a>
           </section>
       </section>
 
-        
+        <script src="js/render/event-listener.js" type="module"></script>
         <script src="js/new-tab.js" type="module"></script>
        
 </body>

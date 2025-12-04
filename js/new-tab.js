@@ -1,6 +1,7 @@
 import { getFromCache, storeToCache } from "./cache.js";
 import render from "./render/render.js";
 import { loadWeatherIconsMapping } from "./weather/weather-icon.js";
+import renderForecast from "./weather/weather-forecast.js";
 
 
 
@@ -82,6 +83,7 @@ const setup = async () => {
     // }
     
     render(position, weather);
+    renderForecast(weather);
 
     
 }   

@@ -188,20 +188,20 @@
   "31": {
     "description": "Rain (continuous, slight)",
     "icon": "rain.svg",
-    "day": "overcast-day-rain.svg",
-    "night": "overcast-night-rain.svg"
+    "day": "rain.svgrain.svg",
+    "night": "rain.svg"
   },
   "32": {
     "description": "Rain (intermittent, moderate)",
     "icon": "rain.svg",
-    "day": "partly-cloudy-day-rain.svg",
-    "night": "partly-cloudy-night-rain.svg"
+    "day": "rain.svg",
+    "night": "rain.svg"
   },
   "33": {
     "description": "Rain (continuous, moderate)",
     "icon": "overcast-rain.svg",
-    "day": "overcast-day-rain.svg",
-    "night": "overcast-night-rain.svg"
+    "day": "rain.svg",
+    "night": "rain.svg"
   },
   "34": {
     "description": "Rain (intermittent, heavy)",
