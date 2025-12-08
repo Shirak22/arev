@@ -36,6 +36,7 @@ const fetchWeatherByCoords = async (latitude, longitude) => {
         const data = await fetchWeather.json();
         return data ; 
 
+
     } catch (error) {
         console.error("couldn't fetch weather ",error)
     }

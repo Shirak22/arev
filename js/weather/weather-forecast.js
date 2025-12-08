@@ -28,24 +28,19 @@ import getWeatherDescription from "./weather-description.js";
 import getWeatherIcon from "./weather-icon.js";
 
 const getDayOfWeek = (time) => {
-    const day = new Date(time).toLocaleDateString('en-US', { weekday: 'long' });
-    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
-    if(day === today) {
+    const day = new Date(time);
+    const today = new Date();
+    if(day.getDate() === today.getDate() + 1) {
         return 'Tomorrow';
-    } else {
-        return day;
+    }else if (day.getDate() === today.getDate()) {
+        return 'Today';
+    }else {
+        return day.toLocaleDateString('en-US', { weekday: 'long' });
     }
 }
 const renderForecast = (weather) => {
     const forecast = weather.daily;
     const forecastDays = document.querySelector('.weather-forecast-days');
-    const forecastDay = document.querySelector('.weather-forecast-day');
-    const forecastDayDescription = document.querySelector('.weather-forecast-day-description');
-    const forecastDayTemperature = document.querySelector('.weather-forecast-day-temperature');
-    const forecastDayTemperatureMinMax = document.querySelector('.weather-forecast-day-temperature-min-max');
-    const forecastDayDate = document.querySelector('.weather-forecast-day-date');
-
-
     forecast.time.forEach((time, index) => {
         const icon = getWeatherIcon(forecast.weathercode[index]);
         const description = getWeatherDescription(forecast.weathercode[index]);

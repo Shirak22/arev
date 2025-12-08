@@ -108,14 +108,7 @@ const setup = async () => {
         });
     }
 
-    // Credits link click handler
-    const creditsLink = document.getElementById('credits-link-popup');
-    if (creditsLink) {
-        creditsLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            chrome.tabs.create({ url: chrome.runtime.getURL('credits.html') });
-        });
-    }
+ 
 }   
 
 setup();

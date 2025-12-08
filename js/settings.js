@@ -59,9 +59,11 @@ const refreshLocation = async() => {
      let position = await getLocationByIp();
     if(!position) position = await getPositionByGeolocation();
     position && await storeToCache('position', position);
+    console.log(position);
     if(position) {
         weather = await getWeatherByCoords(position.latitude, position.longitude);
         weather && await storeToCache('weather', weather);
+        console.log(weather);
         if(weather) {
             location.innerHTML = `
             <p>Country: ${position.country}</p>
