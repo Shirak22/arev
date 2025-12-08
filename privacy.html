@@ -1,0 +1,193 @@
+<!--
+  @fileoverview Privacy Policy page for Arev Chrome Extension
+  @author Shirak Soghomonian
+  @license MIT
+  Copyright (c) 2025 Shirak Soghomonian
+  GitHub: https://github.com/Shirak22/arev
+  
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to deal
+  in the Software without restriction, including without limitation the rights
+  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+  copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+  
+  The above copyright notice and this permission notice shall be included in all
+  copies or substantial portions of the Software.
+  
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+  SOFTWARE.
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/new-tab.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300;400;500;700&display=swap"
+        rel="stylesheet">
+    <title>Privacy Policy - Arev</title>
+</head>
+
+<body>
+   
+    <section id="main-container" class="privacy-container">
+     
+
+                
+                <section class="settings-content-container">
+                    <div class="privacy-content">
+                        <p class="privacy-intro">
+                            <header id="settings-footer">
+                                <img src="assets/logo/icon_512.png" alt="Arev Logo">
+                            </header>
+                            <h3 class="settings-title">Privacy Policy</h3>
+                            <strong>Last Updated:</strong> January 2025
+                        </p>
+                        <p class="privacy-intro">
+                            This Privacy Policy describes how the Arev Chrome Extension ("we", "our", or "the extension") 
+                            collects, uses, and stores your information. We are committed to protecting your privacy and 
+                            being transparent about our data practices.
+                        </p>
+
+                        <h4 class="privacy-section-title">1. Data Collection and Storage</h4>
+                        <p class="privacy-text">
+                            The Arev extension stores data <strong>exclusively</strong> in Chrome's local storage 
+                            (<code>chrome.storage.local</code>). All data remains on your device and is never transmitted 
+                            to our servers or any external service we control.
+                        </p>
+                        <p class="privacy-text">
+                            <strong>Data Stored Locally:</strong>
+                        </p>
+                        <ul class="privacy-list">
+                            <li><strong>Location Data:</strong> City name, country name, latitude, and longitude coordinates</li>
+                            <li><strong>Weather Data:</strong> Current weather conditions and forecast information</li>
+                            <li><strong>Cache Timestamps:</strong> Timestamps indicating when data was last fetched</li>
+                        </ul>
+                        <p class="privacy-text">
+                            <strong>Cache Expiration:</strong>
+                        </p>
+                        <ul class="privacy-list">
+                            <li>Location data: Cached for 24 hours</li>
+                            <li>Weather data: Cached for 1 hour</li>
+                        </ul>
+                        <p class="privacy-text">
+                            You can clear all cached data at any time through the extension's settings or by uninstalling 
+                            the extension.
+                        </p>
+
+                        <h4 class="privacy-section-title">2. Geolocation API</h4>
+                        <p class="privacy-text">
+                            The extension may request access to your device's geolocation through the browser's 
+                            Geolocation API. This is used to provide accurate weather information based on your current 
+                            location.
+                        </p>
+                        <p class="privacy-text">
+                            <strong>Important:</strong> The extension only uses geolocation data if you explicitly grant 
+                            permission. If you deny permission, the extension will attempt to determine your location 
+                            using your IP address instead (see Section 3).
+                        </p>
+                        <p class="privacy-text">
+                            Geolocation data is used solely to fetch weather information and is stored locally on your 
+                            device. We do not have access to your geolocation data.
+                        </p>
+
+                        <h4 class="privacy-section-title">3. Third-Party Services</h4>
+                        <p class="privacy-text">
+                            The extension uses the following third-party services to provide weather and location 
+                            functionality. These services have their own privacy policies and terms of service:
+                        </p>
+
+                        <h5 class="privacy-subsection-title">3.1 Open-Meteo Weather API</h5>
+                        <p class="privacy-text">
+                            <strong>Service:</strong> <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer">open-meteo.com</a><br>
+                            <strong>Purpose:</strong> Provides weather forecast data based on your location coordinates<br>
+                            <strong>Data Sent:</strong> Latitude and longitude coordinates only<br>
+                            <strong>Data Received:</strong> Weather conditions, temperature, humidity, wind speed, and forecast data<br>
+                            <strong>Privacy Policy:</strong> <a href="https://open-meteo.com/en/privacy" target="_blank" rel="noopener noreferrer">open-meteo.com/en/privacy</a>
+                        </p>
+
+                        <h5 class="privacy-subsection-title">3.2 ip-api.com</h5>
+                        <p class="privacy-text">
+                            <strong>Service:</strong> <a href="https://ip-api.com/" target="_blank" rel="noopener noreferrer">ip-api.com</a><br>
+                            <strong>Purpose:</strong> Determines your approximate location based on your IP address<br>
+                            <strong>Data Sent:</strong> Your IP address (automatically included in the API request)<br>
+                            <strong>Data Received:</strong> Approximate location (city, country, latitude, longitude)<br>
+                            <strong>Privacy Policy:</strong> <a href="https://ip-api.com/docs/legal" target="_blank" rel="noopener noreferrer">ip-api.com/docs/legal</a>
+                        </p>
+                        <p class="privacy-text">
+                            <strong>Note:</strong> This service is used as a fallback when geolocation permission is not 
+                            granted. IP-based location is less accurate than GPS-based geolocation.
+                        </p>
+
+                        <h5 class="privacy-subsection-title">3.3 BigDataCloud Reverse Geocoding API</h5>
+                        <p class="privacy-text">
+                            <strong>Service:</strong> <a href="https://www.bigdatacloud.com/" target="_blank" rel="noopener noreferrer">bigdatacloud.com</a><br>
+                            <strong>Purpose:</strong> Converts latitude and longitude coordinates into human-readable 
+                            location names (city and country)<br>
+                            <strong>Data Sent:</strong> Latitude and longitude coordinates<br>
+                            <strong>Data Received:</strong> City name and country name<br>
+                            <strong>Privacy Policy:</strong> <a href="https://www.bigdatacloud.com/privacy-policy" target="_blank" rel="noopener noreferrer">bigdatacloud.com/privacy-policy</a>
+                        </p>
+
+                        <h4 class="privacy-section-title">4. Data Sharing and Disclosure</h4>
+                        <p class="privacy-text">
+                            We do not collect, store, or share your personal data with any third parties. The extension 
+                            operates entirely client-side, and all data remains on your device.
+                        </p>
+                        <p class="privacy-text">
+                            When the extension communicates with third-party APIs (as described in Section 3), your 
+                            location coordinates or IP address may be transmitted to those services. This is necessary 
+                            for the extension to function. Please review each service's privacy policy to understand 
+                            how they handle this data.
+                        </p>
+
+                        <h4 class="privacy-section-title">5. Your Rights and Choices</h4>
+                        <p class="privacy-text">
+                            You have the following rights regarding your data:
+                        </p>
+                        <ul class="privacy-list">
+                            <li><strong>Clear Cache:</strong> You can clear all cached data through the extension settings</li>
+                            <li><strong>Disable Geolocation:</strong> You can deny geolocation permission in your browser settings</li>
+                            <li><strong>Uninstall:</strong> Uninstalling the extension will remove all locally stored data</li>
+                        </ul>
+
+
+                        <h4 class="privacy-section-title">6. Changes to This Privacy Policy</h4>
+                        <p class="privacy-text">
+                            We may update this Privacy Policy from time to time. The "Last Updated" date at the top of 
+                            this page indicates when the policy was last revised. We encourage you to review this policy 
+                            periodically.
+                        </p>
+
+                        <h4 class="privacy-section-title">7. Contact Information</h4>
+                        <p class="privacy-text">
+                            If you have any questions or concerns about this Privacy Policy or the extension's data 
+                            practices, please contact us:
+                        </p>
+                        <ul class="privacy-list">
+                            <li><strong>GitHub:</strong> <a href="https://github.com/Shirak22/arev" target="_blank" rel="noopener noreferrer">github.com/Shirak22/arev</a></li>
+                            <li><strong>Developer:</strong> Shirak Soghomonian</li>
+                        </ul>
+                    </div>
+                </section>
+           
+    </section>
+</body>
+
+</html>
+
