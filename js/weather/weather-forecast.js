@@ -42,8 +42,8 @@ const renderForecast = (weather) => {
     const forecast = weather.daily;
     const forecastDays = document.querySelector('.weather-forecast-days');
     forecast.time.forEach((time, index) => {
-        const icon = getWeatherIcon(forecast.weathercode[index]);
-        const description = getWeatherDescription(forecast.weathercode[index]);
+        const icon = getWeatherIcon(forecast.weather_code[index]);
+        const description = getWeatherDescription(forecast.weather_code[index]);
         const maxTemp = Math.round(forecast.temperature_2m_max[index]);
         const minTemp = Math.round(forecast.temperature_2m_min[index]);
        // check if time is tomorrow to right the word tomorrow in the forecastDayDate

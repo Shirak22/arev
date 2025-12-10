@@ -44,14 +44,14 @@ const loadWeatherBackgroundsMapping = async () => {
     return loadingPromise;  
 }
 loadWeatherBackgroundsMapping();
-const getWeatherBackground = (weathercode) => {
+const getWeatherBackground = (weather_code) => {
     // check if weatherBackgroundsMapping is loaded
     if(!weatherBackgroundsMapping) {
         console.warn('Weather backgrounds mapping not loaded yet, using fallback');
         return 'clear-day.jpg'; // fallback
     }
     //get the right group of photos 
-     const folder = weatherBackgroundsMapping.find(item => item.codes.includes(weathercode));
+     const folder = weatherBackgroundsMapping.find(item => item.codes.includes(weather_code));
      const randomPhoto = folder?.photos[Math.floor(Math.random() * folder?.photos.length)];
      return {
         src: folder.folder + '/' + randomPhoto.filename,

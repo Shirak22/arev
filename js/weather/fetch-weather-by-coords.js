@@ -24,8 +24,8 @@
  * THE SOFTWARE.
  */
 
-// https://api.open-meteo.com/v1/forecast?latitude=58.37&longitude=16.19&current=weathercode,temperature_2m,apparent_temperature,relative_humidity_2m&daily=weathercode,temperature_2m_max,temperature_2m_min&forecast_days=3&timezone=auto
-const weatherParameters = 'current=weathercode,temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m&daily=weathercode,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,precipitation,rain,showers,snowfall';
+// https://api.open-meteo.com/v1/forecast?latitude=58.37&longitude=16.19&current=weather_code,temperature_2m,apparent_temperature,relative_humidity_2m&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=3&timezone=auto
+const weatherParameters = 'current=weather_code,temperature_2m,apparent_temperature,relative_humidity_2m,wind_speed_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,precipitation,rain,showers,snowfall';
 const forecastParameters = 'forecast_days=3';
 const timezone = 'timezone=auto';
 

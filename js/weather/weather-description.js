@@ -24,7 +24,7 @@
  * SOFTWARE.
  */
 
-const getWeatherDescription = (weathercode) => {
+const getWeatherDescription = (weather_code) => {
     const wmoCodes = {
         0: "Clear sky",
         1: "Mainly clear",
@@ -127,7 +127,7 @@ const getWeatherDescription = (weathercode) => {
         98: "Storm snow",
         99: "Heavy hail"
     };
-    return wmoCodes[weathercode] || "Unknown";
+    return wmoCodes[weather_code] || "Unknown";
 }
 
 export default getWeatherDescription;

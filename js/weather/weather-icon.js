@@ -52,7 +52,7 @@ loadWeatherIconsMapping();
 // need to check if night or day
 
 
-const getWeatherIcon = (weathercode) => {
+const getWeatherIcon = (weather_code) => {
     let icon = '';
 
     if (!weatherIconsMapping) {
@@ -62,9 +62,9 @@ const getWeatherIcon = (weathercode) => {
     // check if night or day
     const isNight = new Date().getHours() > 18 || new Date().getHours() < 6;
     if (isNight) {
-        icon = weatherIconsMapping[weathercode]?.night || 'clear-night.svg';	
+        icon = weatherIconsMapping[weather_code]?.night || 'clear-night.svg';	
     } else {
-        icon = weatherIconsMapping[weathercode]?.day || 'clear-day.svg';   
+        icon = weatherIconsMapping[weather_code]?.day || 'clear-day.svg';   
     }
     
     return icon;

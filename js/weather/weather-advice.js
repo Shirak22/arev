@@ -35,7 +35,7 @@ function generateWardrobeAdvice(weatherData) {
     const daily = weatherData.daily;
     const apparent = current.temperature_2m;
     const temp = current.apparent_temperature;
-    const weatherCode = current.weathercode;
+    const weather_code = current.weather_code;
     const humidity = current.relative_humidity_2m;
     const windSpeed = current.wind_speed_10m;
     
@@ -152,7 +152,7 @@ function generateWardrobeAdvice(weatherData) {
     // Add to your existing rain conditions
 if (condition === "rain") {
   // Light rain vs heavy rain
-  if (weatherCode === 51 || weatherCode === 53) { // Light drizzle
+  if (weather_code === 51 || weather_code === 53) { // Light drizzle
     const lightRainAdvice = [
       "🌦️ Just a spritz! Light jacket will do.",
       "💦 Mist-erious weather—barely need an umbrella!",
@@ -162,7 +162,7 @@ if (condition === "rain") {
     return lightRainAdvice[Math.floor(Math.random() * lightRainAdvice.length)];
   }
   
-  if (weatherCode === 63 || weatherCode === 65) { // Moderate/heavy rain
+  if (weather_code === 63 || weather_code === 65) { // Moderate/heavy rain
     const heavyRainAdvice = [
       "🌧️ Proper rain! Your umbrella will earn its keep.",
       "💧 Dress like you're auditioning for a wet T-shirt contest (but don't).",
@@ -172,7 +172,7 @@ if (condition === "rain") {
     return heavyRainAdvice[Math.floor(Math.random() * heavyRainAdvice.length)];
   }
   
-  if (weatherCode >= 80 && weatherCode <= 82) { // Rain showers
+  if (weather_code >= 80 && weather_code <= 82) { // Rain showers
     const showerAdvice = [
       "🌦️ Surprise showers! Waterproof layers recommended.",
       "🚿 On/off rain: nature can't make up its mind.",
@@ -186,7 +186,7 @@ if (condition === "rain") {
   // Add to your existing snow conditions
 if (condition === "snow") {
   // Light snow vs heavy snow
-  if (weatherCode === 71 || weatherCode === 73) { // Light/moderate snow
+  if (weather_code === 71 || weather_code === 73) { // Light/moderate snow
     const lightSnowAdvice = [
       "❄️ Gentle snowflakes! Pretty but slippery.",
       "🌨️ Light dusting—winter's gentle reminder.",
@@ -196,7 +196,7 @@ if (condition === "snow") {
     return lightSnowAdvice[Math.floor(Math.random() * lightSnowAdvice.length)];
   }
   
-  if (weatherCode === 75 || weatherCode === 85 || weatherCode === 86) { // Heavy snow/snow showers
+  if (weather_code === 75 || weather_code === 85 || weather_code === 86) { // Heavy snow/snow showers
     const heavySnowAdvice = [
       "❄️⛄ Serious snow! Boots with grip mandatory.",
       "🌨️ Winter wonderland or snowpocalypse? You decide!",
@@ -206,7 +206,7 @@ if (condition === "snow") {
     return heavySnowAdvice[Math.floor(Math.random() * heavySnowAdvice.length)];
   }
   
-  if (weatherCode === 77) { // Snow grains
+  if (weather_code === 77) { // Snow grains
     const grainSnowAdvice = [
       "🧂 Snow grains! Like nature's tiny styrofoam.",
       "❄️ It's snowing... but in miniature!",
@@ -220,7 +220,7 @@ if (condition === "snow") {
 //special rain/snow combos
 
 // Freezing rain (worst of both worlds)
-if (weatherCode === 66 || weatherCode === 67) { // Freezing rain
+if (weather_code === 66 || weather_code === 67) { // Freezing rain
   const freezingRainAdvice = [
     "🧊☔ Freezing rain! Nature's most treacherous creation.",
     "⚠️ Ice rink conditions—walk like a penguin!",
@@ -265,7 +265,7 @@ if (condition === "snow" && windSpeed > 8) { // ~30 km/h
     
     // Check weather code
     for (const [cond, codes] of Object.entries(codeToCondition)) {
-      if (codes.includes(weatherCode)) {
+      if (codes.includes(weather_code)) {
         condition = cond;
         const options = weatherModifiers[cond];
         conditionAdvice = options[Math.floor(Math.random() * options.length)];

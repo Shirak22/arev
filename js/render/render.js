@@ -43,12 +43,12 @@ const render = (position, weather) => {
     const recommendation = document.querySelector('.clothes-recommendation');
     const credits = document.querySelector('.photograph-credits-name');
     const link = document.querySelector('.photograph-credits-link');
-    const background = getWeatherBackground(weather.current.weathercode);
+    const background = getWeatherBackground(weather.current.weather_code);
     
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
-    icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weathercode)}`;
-     description.textContent = getWeatherDescription(weather.current.weathercode);
+    icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
+     description.textContent = getWeatherDescription(weather.current.weather_code);
      temperature.textContent = Math.round(weather.current.temperature_2m);
      feelsLike.textContent =  Math.round(weather.current.apparent_temperature);
      windSpeedValue.textContent = Math.round(weather.current.wind_speed_10m);
