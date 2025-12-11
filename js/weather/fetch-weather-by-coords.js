@@ -26,7 +26,7 @@
 
 // https://api.open-meteo.com/v1/forecast?latitude=58.37&longitude=16.19&current=weather_code,temperature_2m,apparent_temperature,relative_humidity_2m&daily=weather_code,temperature_2m_max,temperature_2m_min&forecast_days=3&timezone=auto
 const weatherParameters = 'current=weather_code,temperature_2m,is_day,apparent_temperature,relative_humidity_2m,wind_speed_10m,precipitation,rain,showers,snowfall';
-const forecastParameters = 'daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max&forecast_days=3';
+const forecastParameters = 'daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max,precipitation_probability&forecast_days=3';
 const timezone = 'timezone=auto';
 let units_parameter = '';
 

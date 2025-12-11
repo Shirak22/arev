@@ -1,13 +1,12 @@
 ##### TODO LIST ##### 
 
-- add precipetation, snow rain or other on the current weather status; 
+
 - fix the advice to be more percise; 
-- add link management; 
 
 
 
 ####### in progress ######
-- add fehrenheit or celicus to settings 
+- add precipetation, snow rain or other on the current weather status; 
 
 
 
@@ -16,3 +15,4 @@
 ########## done ########## 
 - fix weather container size on resize event. to change when the height changes not the width; 
 - add clear_night to background if its night
+- add fehrenheit or celicus to settings 

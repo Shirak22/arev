@@ -150,7 +150,7 @@ button:hover {
     align-items: center;
     background-image: url('../assets/backgrounds/thunderstorm/51.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
     margin: 0;
     padding: 0;
@@ -226,8 +226,35 @@ button:hover {
 
 .weather-temperature-details{
     display: flex;
-    justify-content: space-between;
-    text-transform: capitalize;
+    justify-content: center;
+    text-transform: lowercase;
+    align-items: center;
+    gap: var(--gap-md);
+    width: 100%;
+
+}
+.weather-temperature-details div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1 1 0;
+}
+.weather-temperature h1 {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    gap: var(--gap-sm);
+}
+.weather-temperature-details div img {
+    max-width: 3rem;
+}
+.weather-temperature-value {
+    font-size: var(--font-size-xxl);
+}
+.weather-temperature-unit {
+    font-size: var(--font-size-xl);
+    margin-left: calc( var(--spacing-md) * -1 ) ;
+    margin-top:  var(--spacing-sm)  ;
 }
 .photograph-credits-name {
     font-weight: var(--font-weight-normal);

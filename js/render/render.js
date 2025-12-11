@@ -39,6 +39,7 @@ const render = (position, weather) => {
     const humidityValue = document.querySelector('.weather-temperature-humidity-value');
     const description = document.querySelector('.weather-description');
     const temperature = document.querySelector('.weather-temperature-value');
+    const temperatureUnit = document.querySelector('.weather-temperature-unit');
     const feelsLike = document.querySelector('.weather-temperature-feels-like');
     const recommendation = document.querySelector('.clothes-recommendation');
     const credits = document.querySelector('.photograph-credits-name');
@@ -50,9 +51,10 @@ const render = (position, weather) => {
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
     icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
      description.textContent = getWeatherDescription(weather.current.weather_code);
-     temperature.textContent = Math.round(weather.current.temperature_2m) + weather.current_units.temperature_2m;
+     temperature.textContent = Math.round(weather.current.temperature_2m);
+     temperatureUnit.textContent = weather.current_units.temperature_2m;
      feelsLike.textContent =  Math.round(weather.current.apparent_temperature) + weather.current_units.apparent_temperature;
-     windSpeedValue.textContent = Math.round(weather.current.wind_speed_10m) + weather.current_units.wind_speed_10m;
+     windSpeedValue.textContent = Math.round(weather.current.wind_speed_10m) +' '+ weather.current_units.wind_speed_10m;
      humidityValue.textContent = Math.round(weather.current.relative_humidity_2m) + weather.current_units.relative_humidity_2m;
      mainContainer.style.backgroundImage = `url(${background.src})`;
     credits.textContent = background.photographer;
