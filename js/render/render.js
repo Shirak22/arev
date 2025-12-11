@@ -45,14 +45,15 @@ const render = (position, weather) => {
     const link = document.querySelector('.photograph-credits-link');
     const background = getWeatherBackground(weather.current.weather_code, weather.current.is_day);
     console.log("##background##",weather);
+
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
     icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
      description.textContent = getWeatherDescription(weather.current.weather_code);
-     temperature.textContent = Math.round(weather.current.temperature_2m);
-     feelsLike.textContent =  Math.round(weather.current.apparent_temperature);
-     windSpeedValue.textContent = Math.round(weather.current.wind_speed_10m);
-     humidityValue.textContent = Math.round(weather.current.relative_humidity_2m);
+     temperature.textContent = Math.round(weather.current.temperature_2m) + weather.current_units.temperature_2m;
+     feelsLike.textContent =  Math.round(weather.current.apparent_temperature) + weather.current_units.apparent_temperature;
+     windSpeedValue.textContent = Math.round(weather.current.wind_speed_10m) + weather.current_units.wind_speed_10m;
+     humidityValue.textContent = Math.round(weather.current.relative_humidity_2m) + weather.current_units.relative_humidity_2m;
      mainContainer.style.backgroundImage = `url(${background.src})`;
     credits.textContent = background.photographer;
     link.href = background.url;

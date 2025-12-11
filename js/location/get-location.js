@@ -34,6 +34,7 @@ import fetchLocationByIP from "./fetch-location-by-ip.js";
                 country: fetchLocation?.country,
                 latitude: fetchLocation?.lat,
                 longitude: fetchLocation?.lon,
+                USA:fetchLocation?.countryCode === 'US',
             }
         if(!fetchLocation) return null; 
         return location;

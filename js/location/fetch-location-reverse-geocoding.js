@@ -34,7 +34,8 @@ const fetchLocationReverseGeocoding = async (latitude, longitude) => {
             city: data.city,
             country: data.countryName,
             lat: data.latitude  ,
-            lon: data.longitude,        
+            lon: data.longitude,    
+            USA: data.countryCode === 'US',
         }
         return location || null;
     } catch (error) {

@@ -28,13 +28,20 @@
 const weatherParameters = 'current=weather_code,temperature_2m,is_day,apparent_temperature,relative_humidity_2m,wind_speed_10m,precipitation,rain,showers,snowfall';
 const forecastParameters = 'daily=weather_code,temperature_2m_max,temperature_2m_min,wind_speed_10m_max&forecast_days=3';
 const timezone = 'timezone=auto';
+let units_parameter = '';
 
-const fetchWeatherByCoords = async (latitude, longitude) => {
-    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&${weatherParameters}&${forecastParameters}&${timezone}`;
-    try {
-        console.log("##url##",url);
+const fetchWeatherByCoords = async (latitude, longitude, USA = false) => {
+    if(USA) {
+        units_parameter = '&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch'; 
+    } else {
+        units_parameter = '&wind_speed_unit=ms&temperature_unit=celsius&precipitation_unit=mm';
+    }
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&${weatherParameters}&${forecastParameters}&${timezone}${units_parameter}`;
+        try {
+        console.log("##units##",units_parameter);
         const fetchWeather = await fetch(url); 
         const data = await fetchWeather.json();
+        console.log("##data##",data);
         return data ; 
 
 

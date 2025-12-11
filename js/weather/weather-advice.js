@@ -32,8 +32,6 @@
 function generateWardrobeAdvice(weatherData) {
     // Extract data from API response
     const current = weatherData.current;
-    const daily = weatherData.daily;
-    const apparent = current.temperature_2m;
     const temp = current.apparent_temperature;
     const weather_code = current.weather_code;
     const humidity = current.relative_humidity_2m;
@@ -327,7 +325,7 @@ if (condition === "snow" && windSpeed > 8) { // ~30 km/h
       }
     }
     
-    return tempAdvice || conditionAdvice || "Dress comfortably for today's weather!";
+    return tempAdvice + " " + conditionAdvice || "Dress comfortably for today's weather!";
   }
   
 export default generateWardrobeAdvice;

@@ -55,7 +55,7 @@ async function setup() {
             return true;
         }else if (message.type === 'getWeatherByCoords') {
             (async() => {
-                const getWeather = await fetchWeatherByCoords(message.latitude, message.longitude);
+                const getWeather = await fetchWeatherByCoords(message.latitude, message.longitude,message.USA);
                 if(getWeather) {
                     sendResponse(getWeather);
                 }else {

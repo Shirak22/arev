@@ -40,11 +40,12 @@ const getDayOfWeek = (time) => {
 }
 const renderForecast = (weather) => {
     const forecast = weather.daily;
+    const units = weather.daily_units;
     const forecastDays = document.querySelector('.weather-forecast-days');
     forecast.time.forEach((time, index) => {
         const icon = getWeatherIcon(forecast.weather_code[index]);
         const description = getWeatherDescription(forecast.weather_code[index]);
-        const maxTemp = Math.round(forecast.temperature_2m_max[index]);
+        const maxTemp = Math.round(forecast.temperature_2m_max[index]) ;
         const minTemp = Math.round(forecast.temperature_2m_min[index]);
        // check if time is tomorrow to right the word tomorrow in the forecastDayDate
         let tomorrow = getDayOfWeek(time);
@@ -53,7 +54,7 @@ const renderForecast = (weather) => {
         <section class="weather-forecast-day">
             <img src="assets/icons/svg/${icon}" alt="${description}" class="weather-forecast-icon">
             <p class="weather-forecast-day-description">${description}</p>
-            <p class="weather-forecast-day-temperature-min-max">${maxTemp}°/${minTemp}°</p>
+            <p class="weather-forecast-day-temperature-min-max">${maxTemp}/${minTemp} ${units.temperature_2m_max}</p>
             <p class="weather-forecast-day-date">${tomorrow}</p>
         </section>
     `;

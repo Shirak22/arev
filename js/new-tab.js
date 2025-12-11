@@ -53,12 +53,12 @@ export async function getLocationByIp() {
     return response;
 }
 
-export async function getWeatherByCoords(latitude, longitude) {
+export async function getWeatherByCoords(latitude, longitude,USA) {
     if(!latitude || !longitude){
         console.error("coords are not correct... "); 
         return; 
     }
-    const response = await chrome.runtime.sendMessage({ type: 'getWeatherByCoords', latitude: latitude, longitude: longitude });
+    const response = await chrome.runtime.sendMessage({ type: 'getWeatherByCoords', latitude: latitude, longitude: longitude, USA: USA });
     if(response) {
         return response;
     }else {
@@ -90,7 +90,7 @@ const setup = async () => {
   }
 
     if (!cachedWeather) {
-        weather = await getWeatherByCoords(position.latitude, position.longitude);
+        weather = await getWeatherByCoords(position.latitude, position.longitude,position.USA);
         weather && await storeToCache('weather', weather);
     } else {
         weather = cachedWeather.weather;

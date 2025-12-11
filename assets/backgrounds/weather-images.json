@@ -442,8 +442,8 @@
   },
   {
     "weather": "night-partly-cloudy",
-    "folder": "assets/backgrounds/night-partly-cloudy",
-    "codes": [2],
+    "folder": "assets/backgrounds/night-cloudy",
+    "codes": [2,3],
     "photos": [
       {
         "number": 64,

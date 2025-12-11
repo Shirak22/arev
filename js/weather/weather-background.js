@@ -52,11 +52,13 @@ const getWeatherBackground = (weather_code, is_day = true) => {
     }
     //get the right group of photos 
      const folder = weatherBackgroundsMapping.filter(item => item.codes.includes(weather_code));
+
     let randomPhoto = null;
     if(folder.length > 1 && !is_day) randomPhoto = folder[1].photos[Math.floor(Math.random() * folder[1].photos.length)];
     else randomPhoto = folder[0].photos[Math.floor(Math.random() * folder[0].photos.length)];
+
      return {
-        src: folder[is_day ? 0 : 1].folder + '/' + randomPhoto.filename,
+        src: folder[!is_day && folder.length > 1 ? 1 : 0].folder + '/' + randomPhoto.filename,
         photographer: randomPhoto.photographer,
         url: randomPhoto.url
      }

@@ -223,13 +223,7 @@ button:hover {
 {
     font-size: var(--font-size-sm);
 }
-.weather-temperature-value::after{
-    content: "°";
-    font-size: var(--font-size-xxl);
-    font-weight: var(--font-weight-thin);
-    color: var(--color-text-primary);
-    margin-left: var(--spacing-sm);
-}
+
 .weather-temperature-details{
     display: flex;
     justify-content: space-between;

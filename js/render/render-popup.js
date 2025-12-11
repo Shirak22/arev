@@ -37,9 +37,9 @@ export const renderPopup = (weather) => {
     <p>${getWeatherDescription(weather.current.weather_code)}</p>
     `;
     popupWeatherTemperature.innerHTML = `
-    <h2>${Math.round(weather.current.temperature_2m)}°C</h2>
-    <p>Feels like ${Math.round(weather.current.apparent_temperature)}°C</p>
-    <p>WS ${Math.round(weather.current.wind_speed_10m)} m/s</p>
-    <p>H ${Math.round(weather.current.relative_humidity_2m)}%</p>
+    <h2>${Math.round(weather.current.temperature_2m)}${weather.current_units.temperature_2m}</h2>
+    <p>Feels like ${Math.round(weather.current.apparent_temperature)} ${weather.current_units.apparent_temperature}</p>
+    <p>WS ${Math.round(weather.current.wind_speed_10m)} ${weather.current_units.wind_speed_10m}</p>
+    <p>H ${Math.round(weather.current.relative_humidity_2m)} ${weather.current_units.relative_humidity_2m}</p>
 `;
 }

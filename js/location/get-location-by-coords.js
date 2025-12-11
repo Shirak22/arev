@@ -34,6 +34,7 @@ const getLocationByCoords = async (latitude, longitude) => {
                 country: location?.country,
                 latitude: location?.lat, 
                 longitude: location?.lon,
+                USA: location?.USA,
             };
         }
     return null;
