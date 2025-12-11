@@ -358,20 +358,32 @@ button:hover {
 
 
 
-@media (min-width: 1024px) and (max-width: 1700px) {
+@media (min-height: 1240px) {
     html {
-        font-size: 13px; 
+        font-size: 17px; 
     }
 }
 
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-height: 800px) and (max-height: 960px) {
     html {
-        font-size: 11px;
+        font-size: 15px;
+    }
+    
+}
+@media (min-height: 600px) and (max-height: 799px) {
+    html {
+        font-size: 13px;
     }
     
 }
 
+@media  (max-height: 599px) {
+    html {
+        font-size: 10px;
+    }
+    
+}
 #settings-content{
     display: flex;
     flex-direction: column;

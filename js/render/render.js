@@ -28,9 +28,9 @@ import getWeatherBackground from "../weather/weather-background.js";
 import getWeatherDescription from "../weather/weather-description.js";
 import getWeatherIcon from "../weather/weather-icon.js";
 import generateWardrobeAdvice from "../weather/weather-advice.js";
-import renderLoader from "./loader.js";
 
 const render = (position, weather) => {
+    if(!weather) return;
     const mainContainer = document.querySelector('#main-container');
     const city = document.querySelector('.location-city');
     const time = document.querySelector('.weather-time');
@@ -43,8 +43,8 @@ const render = (position, weather) => {
     const recommendation = document.querySelector('.clothes-recommendation');
     const credits = document.querySelector('.photograph-credits-name');
     const link = document.querySelector('.photograph-credits-link');
-    const background = getWeatherBackground(weather.current.weather_code);
-    
+    const background = getWeatherBackground(weather.current.weather_code, weather.current.is_day);
+    console.log("##background##",weather);
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
     icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
