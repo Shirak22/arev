@@ -78,7 +78,7 @@ let cachedWeather = null;
 const setup = async () => {
   // Ensure weather icons mapping is loaded before rendering
   await loadWeatherIconsMapping();
-  
+
   cachedPosition  = await getFromCache('position');
   cachedWeather = await getFromCache('weather'); 
 
@@ -108,7 +108,6 @@ const setup = async () => {
         });
     }
 
- 
 }   
 
 setup();

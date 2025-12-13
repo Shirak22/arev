@@ -104,6 +104,7 @@ const setup = async () => {
         console.error('Position or weather not found');
     }
     
+
 }   
 
 export { setup };

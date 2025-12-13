@@ -54,7 +54,6 @@ loadWeatherIconsMapping();
 
 const getWeatherIcon = (weather_code) => {
     let icon = '';
-
     if (!weatherIconsMapping) {
         console.warn('Weather icons mapping not loaded yet, using fallback');
         return 'clear-day.svg'; // fallback

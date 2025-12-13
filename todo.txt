@@ -1,13 +1,13 @@
 ##### TODO LIST ##### 
+- topSites most visited sites to show 
+- 
 
 
-- fix the advice to be more percise; 
 
 
 
 ####### in progress ######
-- add precipetation, snow rain or other on the current weather status; 
-
+- fix the advice to be more percise; 
 
 
 
