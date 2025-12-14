@@ -8,9 +8,7 @@
         "activeTab",
         "storage",
         "geolocation",
-        "tabs",
-        "topSites",
-        "bookmarks"
+        "tabs"
     ],
     "background": {
         "service_worker": "js/background.js",

@@ -28,7 +28,6 @@ let adviceData = null;
 
 /**
  * Load wardrobe advice data from JSON file
- * @returns {Promise<Object>} Advice data object
  */
 async function loadAdviceData() {
     if (adviceData) return adviceData;
@@ -45,20 +44,13 @@ async function loadAdviceData() {
 
 /**
  * Get random advice from an array
- * @param {Array<String>} adviceArray - Array of advice strings
- * @returns {String} Random advice string
  */
 function getRandomAdvice(adviceArray) {
     if (!adviceArray || adviceArray.length === 0) return null;
     return adviceArray[Math.floor(Math.random() * adviceArray.length)];
 }
 
-/**
- * Determine weather condition from weather code
- * @param {Number} weatherCode - Weather code from API
- * @param {Object} conditions - Weather conditions mapping from JSON
- * @returns {String|null} Condition name or null
- */
+
 function getConditionFromCode(weatherCode, conditions) {
     for (const [conditionName, conditionData] of Object.entries(conditions)) {
         if (conditionData.codes && conditionData.codes.includes(weatherCode)) {
@@ -68,11 +60,6 @@ function getConditionFromCode(weatherCode, conditions) {
     return null;
 }
 
-/**
- * Check for precipitation (rain, snow, showers)
- * @param {Object} current - Current weather data
- * @returns {String|null} Precipitation type or null
- */
 function getPrecipitationType(current) {
     if (current.rain > 0) return 'rain';
     if (current.snowfall > 0) return 'snow';
@@ -106,13 +93,12 @@ function getTemperatureAdvice(temp, tempCategories) {
  * Get condition-specific advice based on weather code and precipitation
  * @param {Number} weatherCode - Weather code from API
  * @param {String} condition - Condition name
- * @param {String} precipitationType - Precipitation type
  * @param {Number} temp - Apparent temperature
  * @param {Number} windSpeed - Wind speed
  * @param {Object} conditions - Weather conditions from JSON
  * @returns {String|null} Condition advice or null
  */
-function getConditionAdvice(weatherCode, condition, precipitationType, temp, windSpeed, conditions) {
+function getConditionAdvice(weatherCode, condition, temp, windSpeed, conditions) {
     if (!condition || !conditions[condition]) return null;
     
     const conditionData = conditions[condition];
