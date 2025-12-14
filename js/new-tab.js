@@ -98,7 +98,6 @@ const setup = async () => {
 
     if(position && weather) {
         
-        
         await render(position, weather);
         renderForecast(weather);
     }

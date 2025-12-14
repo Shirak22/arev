@@ -33,7 +33,7 @@ export const renderPopup = (weather) => {
 
 
     popupWeatherDescription.innerHTML = `
-    <img src="assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}" alt="Weather Icon">
+    <img src="assets/icons/svg/${getWeatherIcon(weather.current.weather_code,weather.current.is_day)}" alt="Weather Icon">
     <p>${getWeatherDescription(weather.current.weather_code)}</p>
     `;
     popupWeatherTemperature.innerHTML = `

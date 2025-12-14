@@ -3,7 +3,7 @@
     "manifest_version": 3,
     "name": "Arev",
     "version": "1.0.0",
-    "description": "Transform your new tab into a beautiful, weather-responsive experience. Clean, minimalist design that adapts to your local weather—no clutter.",
+    "description": "A beautiful, minimalist new tab that reflects your local weather.",
     "permissions": [
         "activeTab",
         "storage",

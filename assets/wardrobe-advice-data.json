@@ -3,6 +3,9 @@
     {
       "min": -1000,
       "max": -10,
+      "severity": 9,
+      "alwaysShow": true,
+      "tone": "serious",
       "advice": [
         "❄️ Layer like an Arctic explorer!",
         "🥶 Bundle up—it's frostbite weather!",
@@ -23,6 +26,9 @@
     {
       "min": -10,
       "max": 0,
+      "severity": 7,
+      "alwaysShow": false,
+      "tone": "serious",
       "advice": [
         "🧥 Cozy coat weather—embrace the puff!",
         "🧣 Scarf and gloves are your best friends.",
@@ -143,6 +149,9 @@
     {
       "min": 35,
       "max": 1000,
+      "severity": 9,
+      "alwaysShow": true,
+      "tone": "serious",
       "advice": [
         "🔥 Seek shade and wear minimal layers.",
         "🧴 Sunscreen is non-negotiable today!",
@@ -164,6 +173,8 @@
   "weatherConditions": {
     "rain": {
       "codes": [55, 56, 57, 61, 66, 67, 80, 81, 82],
+      "severity": 5,
+      "tone": "fun",
       "general": [
         "☔ Don't forget your umbrella!",
         "🌧️ A waterproof layer would be wise.",
@@ -182,6 +193,9 @@
       ],
       "light": {
         "codes": [51, 53],
+        "severity": 4,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "🌦️ Just a spritz! Light jacket will do.",
           "💦 Mist-erious weather—barely need an umbrella!",
@@ -201,6 +215,9 @@
       },
       "moderate": {
         "codes": [61, 63],
+        "severity": 6,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "🌧️ Proper rain! Your umbrella will earn its keep.",
           "💧 Dress like you're auditioning for a wet T-shirt contest (but don't).",
@@ -220,6 +237,9 @@
       },
       "heavy": {
         "codes": [65],
+        "severity": 8,
+        "alwaysShow": false,
+        "tone": "serious",
         "advice": [
           "🌧️ Heavy rain! Waterproof everything!",
           "💧 You'll need a boat, not an umbrella.",
@@ -239,6 +259,9 @@
       },
       "showers": {
         "codes": [80, 81, 82],
+        "severity": 5,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "🌦️ Surprise showers! Waterproof layers recommended.",
           "🚿 On/off rain: nature can't make up its mind.",
@@ -258,6 +281,9 @@
       },
       "freezing": {
         "codes": [66, 67],
+        "severity": 10,
+        "alwaysShow": true,
+        "tone": "serious",
         "advice": [
           "🧊☔ Freezing rain! Nature's most treacherous creation.",
           "⚠️ Ice rink conditions—walk like a penguin!",
@@ -277,6 +303,9 @@
       },
       "warm": {
         "tempMin": 25,
+        "severity": 4,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "☔🌡️ Warm rain! Refreshing or just sweaty?",
           "💦🚿 Natural shower weather—embrace it!",
@@ -296,6 +325,9 @@
       },
       "cold": {
         "tempMax": 10,
+        "severity": 8,
+        "alwaysShow": true,
+        "tone": "serious",
         "advice": [
           "🧥☔ Waterproof warmth is essential today!",
           "❄️💧 Cold rain: nature's most unwelcome combo!",
@@ -316,6 +348,8 @@
     },
     "snow": {
       "codes": [71, 73, 75, 77, 85, 86],
+      "severity": 5,
+      "tone": "fun",
       "general": [
         "❄️ Boots with grip are essential!",
         "⛄ Dress like a happy snowman.",
@@ -334,6 +368,9 @@
       ],
       "light": {
         "codes": [71, 73],
+        "severity": 4,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "❄️ Gentle snowflakes! Pretty but slippery.",
           "🌨️ Light dusting—winter's gentle reminder.",
@@ -353,6 +390,9 @@
       },
       "moderate": {
         "codes": [73],
+        "severity": 6,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "❄️ Moderate snow! Boots recommended.",
           "🌨️ Winter wonderland in progress!",
@@ -372,6 +412,9 @@
       },
       "heavy": {
         "codes": [75, 85, 86],
+        "severity": 8,
+        "alwaysShow": false,
+        "tone": "serious",
         "advice": [
           "❄️⛄ Serious snow! Boots with grip mandatory.",
           "🌨️ Winter wonderland or snowpocalypse? You decide!",
@@ -391,6 +434,9 @@
       },
       "grains": {
         "codes": [77],
+        "severity": 3,
+        "alwaysShow": false,
+        "tone": "fun",
         "advice": [
           "🧂 Snow grains! Like nature's tiny styrofoam.",
           "❄️ It's snowing... but in miniature!",
@@ -410,6 +456,9 @@
       },
       "blowing": {
         "windSpeedMin": 8,
+        "severity": 9,
+        "alwaysShow": true,
+        "tone": "serious",
         "advice": [
           "🌬️❄️ Blowing snow! Horizontal winter is here.",
           "🚪🌨️ Going out? Hope you enjoy facial exfoliation!",
@@ -430,6 +479,9 @@
     },
     "thunder": {
       "codes": [95, 96, 99],
+      "severity": 10,
+      "alwaysShow": true,
+      "tone": "serious",
       "advice": [
         "⚡ Stay dry and avoid tall objects!",
         "🌩️ Best to postpone outdoor adventures.",
@@ -449,6 +501,9 @@
     },
     "fog": {
       "codes": [45, 48],
+      "severity": 6,
+      "alwaysShow": false,
+      "tone": "fun",
       "advice": [
         "🌫️ Bright colors for visibility!",
         "👻 Mysterious weather calls for caution.",
@@ -467,7 +522,10 @@
       ]
     },
     "wind": {
-      "windSpeedMin": 25,
+      "windSpeedMin": 23,
+      "severity": 7,
+      "alwaysShow": false,
+      "tone": "fun",
       "advice": [
         "💨 Windproof layers will save the day!",
         "🎩 Secure that hat or it's gone!",
@@ -487,6 +545,9 @@
     },
     "humid": {
       "humidityMin": 75,
+      "severity": 4,
+      "alwaysShow": false,
+      "tone": "fun",
       "advice": [
         "💧 Breathable fabrics are key!",
         "🌿 Dress for a tropical vibe.",
@@ -506,6 +567,9 @@
     },
     "sunny": {
       "codes": [0, 1],
+      "severity": 3,
+      "alwaysShow": false,
+      "tone": "fun",
       "advice": [
         "☀️ Sunglasses and sunscreen advised!",
         "😎 Protect your skin and your eyes.",
@@ -528,6 +592,9 @@
     "hotHumid": {
       "tempMin": 28,
       "humidityMin": 70,
+      "severity": 6,
+      "alwaysShow": false,
+      "tone": "fun",
       "advice": [
         "💦 Light, breathable fabrics for this tropical feel!",
         "🥵🌴 You're not sweating, you're 'pre-marinating'!",
@@ -548,6 +615,9 @@
     "windyCold": {
       "tempMax": 5,
       "windSpeedMin": 20,
+      "severity": 9,
+      "alwaysShow": true,
+      "tone": "serious",
       "advice": [
         "💨🧥 Windproof layers are your shield against the chill!",
         "🥶💨 The wind is personally offended by your warmth!",

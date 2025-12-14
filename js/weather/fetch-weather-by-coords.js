@@ -34,7 +34,7 @@ const fetchWeatherByCoords = async (latitude, longitude, USA = false) => {
     if(USA) {
         units_parameter = '&wind_speed_unit=mph&temperature_unit=fahrenheit&precipitation_unit=inch'; 
     } else {
-        units_parameter = '&wind_speed_unit=ms&temperature_unit=celsius&precipitation_unit=mm';
+        units_parameter = '&wind_speed_unit=kmh&temperature_unit=celsius&precipitation_unit=mm';
     }
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&${weatherParameters}&${forecastParameters}&${timezone}${units_parameter}`;
         try {

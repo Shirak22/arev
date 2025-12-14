@@ -48,7 +48,7 @@ const render = async (position, weather) => {
 
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
-     icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
+     icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code,weather.current.is_day)}`;
      description.textContent = getWeatherDescription(weather.current.weather_code);
      temperature.textContent = Math.round(weather.current.temperature_2m);
      temperatureUnit.textContent = weather.current_units.temperature_2m;

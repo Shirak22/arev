@@ -43,7 +43,7 @@ const renderForecast = (weather) => {
     const units = weather.daily_units;
     const forecastDays = document.querySelector('.weather-forecast-days');
     forecast.time.forEach((time, index) => {
-        const icon = getWeatherIcon(forecast.weather_code[index]);
+        const icon = getWeatherIcon(forecast.weather_code[index],weather.current.is_day);
         const description = getWeatherDescription(forecast.weather_code[index]);
         const maxTemp = Math.round(forecast.temperature_2m_max[index]) ;
         const minTemp = Math.round(forecast.temperature_2m_min[index]);

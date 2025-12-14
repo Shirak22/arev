@@ -52,15 +52,14 @@ loadWeatherIconsMapping();
 // need to check if night or day
 
 
-const getWeatherIcon = (weather_code) => {
+const getWeatherIcon = (weather_code,is_day = true) => {
     let icon = '';
     if (!weatherIconsMapping) {
         console.warn('Weather icons mapping not loaded yet, using fallback');
         return 'clear-day.svg'; // fallback
     }
     // check if night or day
-    const isNight = new Date().getHours() > 18 || new Date().getHours() < 6;
-    if (isNight) {
+    if (!is_day) {
         icon = weatherIconsMapping[weather_code]?.night || 'clear-night.svg';	
     } else {
         icon = weatherIconsMapping[weather_code]?.day || 'clear-day.svg';   
