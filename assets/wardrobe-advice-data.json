@@ -1,0 +1,570 @@
+{
+  "temperatureCategories": [
+    {
+      "min": -1000,
+      "max": -10,
+      "advice": [
+        "❄️ Layer like an Arctic explorer!",
+        "🥶 Bundle up—it's frostbite weather!",
+        "🧊 You could freeze coffee mid-pour!",
+        "🐧 Waddle-worthy weather ahead!",
+        "🧥 Multiple layers are essential for safety.",
+        "❄️ Thermal underwear is your best investment today.",
+        "🥶 Exposed skin can freeze in minutes—cover everything!",
+        "🧊 Your car might not start—dress for the walk home.",
+        "🐧 Even penguins would ask for a jacket.",
+        "🧤 Mittens are warmer than gloves—choose wisely.",
+        "❄️ This is not a drill: winter has arrived with vengeance.",
+        "🥶 Frostbite risk is real—protect your extremities.",
+        "🧊 Consider this nature's cryotherapy session.",
+        "🐧 Layer up like you're preparing for a polar expedition."
+      ]
+    },
+    {
+      "min": -10,
+      "max": 0,
+      "advice": [
+        "🧥 Cozy coat weather—embrace the puff!",
+        "🧣 Scarf and gloves are your best friends.",
+        "⛄ Perfect snowman-building conditions!",
+        "☕ Hot beverage required by law (unofficially).",
+        "🧥 A warm, insulated coat is non-negotiable.",
+        "🧣 Protect your neck and hands from the cold.",
+        "⛄ Perfect weather for winter activities—dress accordingly!",
+        "☕ Warm drinks will help maintain your body temperature.",
+        "🧤 Gloves are essential—fingers get cold fastest.",
+        "🧥 This temperature requires serious winter gear.",
+        "🧣 Your scarf is doing the Lord's work today.",
+        "⛄ Dress warmly enough to enjoy the winter wonderland.",
+        "☕ Consider this your excuse for extra coffee breaks.",
+        "🧥 The cold is real—your fashion can wait."
+      ]
+    },
+    {
+      "min": 0,
+      "max": 10,
+      "advice": [
+        "🧥 Jacket recommended with warm layers.",
+        "🍂 Perfect for your favorite autumn jacket.",
+        "🦆 If ducks aren't shivering, you're overdressed.",
+        "🍁 Crunchy leaf weather activated!",
+        "🧥 A medium-weight jacket will keep you comfortable.",
+        "🍂 Layer with a sweater or fleece underneath.",
+        "🦆 Cool enough to need coverage, warm enough to enjoy.",
+        "🍁 Perfect temperature for brisk walks and cozy vibes.",
+        "🧥 Your jacket should be wind-resistant today.",
+        "🍂 This is peak autumn weather—dress the part!",
+        "🦆 Even wildlife knows it's jacket season.",
+        "🍁 Cool mornings, crisp afternoons—layer accordingly.",
+        "🧥 Don't underestimate the chill—bring that jacket.",
+        "🍂 The perfect excuse to wear your favorite fall layers."
+      ]
+    },
+    {
+      "min": 10,
+      "max": 16,
+      "advice": [
+        "👔 Light jacket or a stylish sweater.",
+        "🎩 Channel your inner cozy mystery novelist.",
+        "🌬️ 'Brisk' is the forecasters' code for 'jacket optional but wise.'",
+        "📚 Library-cardigan weather unlocked!",
+        "👔 A light layer will keep you comfortable all day.",
+        "🎩 Perfect temperature for smart casual layers.",
+        "🌬️ Cool enough to need something, warm enough to be flexible.",
+        "📚 This is sweater weather at its finest.",
+        "👔 Consider a light jacket you can easily remove.",
+        "🎩 The temperature is playing hard to get—layer up.",
+        "🌬️ Brisk means 'you'll regret not bringing a layer.'",
+        "📚 Cardigan weather: professional and practical.",
+        "👔 Light layers give you options as the day warms.",
+        "🎩 Dress for comfort with a touch of style."
+      ]
+    },
+    {
+      "min": 16,
+      "max": 22,
+      "advice": [
+        "👚 Light layers for mild perfection.",
+        "🌤️ The 'just right' Goldilocks zone!",
+        "😌 Temperature so nice, you'll forget to check it.",
+        "🎭 The 'easy to layer, easy to shed' drama.",
+        "👚 Comfortable temperature for most activities.",
+        "🌤️ Light layers provide flexibility throughout the day.",
+        "😌 Perfect weather for outdoor activities without overheating.",
+        "🎭 Dress in layers you can adjust as needed.",
+        "👚 This temperature range is ideal for most people.",
+        "🌤️ Mild weather means you can focus on style over survival.",
+        "😌 So pleasant, you might forget you're outside.",
+        "🎭 The temperature is being considerate today—enjoy it!",
+        "👚 Light layers keep you comfortable without bulk.",
+        "🌤️ Goldilocks would approve of this temperature range."
+      ]
+    },
+    {
+      "min": 22,
+      "max": 28,
+      "advice": [
+        "👕 T-shirt weather—show some skin!",
+        "🩳 Perfect for shorts and sunshine.",
+        "🥤 Iced drink territory—enjoy responsibly!",
+        "😎 Sunglasses on, worries off.",
+        "👕 Comfortable in light, breathable clothing.",
+        "🩳 Shorts and t-shirts are perfectly appropriate.",
+        "🥤 Stay hydrated—warm weather increases fluid needs.",
+        "😎 Protect your eyes from UV rays with sunglasses.",
+        "👕 This is ideal summer casual wear weather.",
+        "🩳 Perfect temperature for outdoor sports and activities.",
+        "🥤 Light, airy fabrics will keep you cool.",
+        "😎 The sun is your friend, but protect your skin.",
+        "👕 Warm enough to be comfortable, not hot enough to suffer.",
+        "🩳 Summer vibes without the heat exhaustion."
+      ]
+    },
+    {
+      "min": 28,
+      "max": 35,
+      "advice": [
+        "😎 Light, breezy fabrics recommended.",
+        "🧊 Stay cool and hydrated out there!",
+        "🔥 Dress like you respect the sun's power.",
+        "🥵 'Is it hot in here or is it just weather?'",
+        "😎 Lightweight, moisture-wicking fabrics are essential.",
+        "🧊 Hydration is critical—drink water regularly.",
+        "🔥 Sun protection becomes a priority at this temperature.",
+        "🥵 Heat exhaustion is a real risk—dress accordingly.",
+        "😎 Natural fibers like cotton and linen help you breathe.",
+        "🧊 Avoid dark colors that absorb heat.",
+        "🔥 The sun is powerful—respect it with proper clothing.",
+        "🥵 This is serious heat—comfort over fashion today.",
+        "😎 Light colors reflect heat and keep you cooler.",
+        "🧊 Take breaks in shade and stay hydrated."
+      ]
+    },
+    {
+      "min": 35,
+      "max": 1000,
+      "advice": [
+        "🔥 Seek shade and wear minimal layers.",
+        "🧴 Sunscreen is non-negotiable today!",
+        "🥵 You might melt, but your style won't.",
+        "🧊 Consider carrying personal AC unit.",
+        "🔥 Heat stroke risk is real—minimize sun exposure.",
+        "🧴 SPF protection is essential for skin safety.",
+        "🥵 This is extreme heat—survival mode activated.",
+        "🧊 Lightweight, loose-fitting clothes are your best defense.",
+        "🔥 Avoid outdoor activities during peak sun hours.",
+        "🧴 Reapply sunscreen every two hours if outside.",
+        "🥵 Your body is working overtime to cool down—help it out.",
+        "🧊 Hydration is critical—water, not just style, matters.",
+        "🔥 This temperature can be dangerous—take it seriously.",
+        "🧴 Sun protection isn't optional—it's mandatory."
+      ]
+    }
+  ],
+  "weatherConditions": {
+    "rain": {
+      "codes": [55, 56, 57, 61, 66, 67, 80, 81, 82],
+      "general": [
+        "☔ Don't forget your umbrella!",
+        "🌧️ A waterproof layer would be wise.",
+        "🦆 Duck-approved weather today!",
+        "💧 Spontaneous shower simulator engaged.",
+        "☔ Waterproof jacket or coat is essential.",
+        "🌧️ Keep electronics and valuables protected from moisture.",
+        "🦆 Even waterfowl would appreciate your umbrella today.",
+        "💧 Wet clothes lead to discomfort and potential illness.",
+        "☔ An umbrella is your portable roof—use it!",
+        "🌧️ Rain boots will keep your feet dry and happy.",
+        "🦆 This is proper rain—not a light mist.",
+        "💧 Waterproof gear is an investment in your comfort.",
+        "☔ Stay dry to stay warm and healthy.",
+        "🌧️ Rain requires practical preparation, not just hope."
+      ],
+      "light": {
+        "codes": [51, 53],
+        "advice": [
+          "🌦️ Just a spritz! Light jacket will do.",
+          "💦 Mist-erious weather—barely need an umbrella!",
+          "☔ Light sprinkle: your hair's worst frienemy.",
+          "👶 Rain so light, babies could use it as a bath.",
+          "🌦️ A light waterproof layer is sufficient.",
+          "💦 Minimal rain means minimal protection needed.",
+          "☔ Light drizzle won't soak you, but might annoy you.",
+          "👶 Perfect for a light jacket or water-resistant top.",
+          "🌦️ This is more of a suggestion of rain than actual rain.",
+          "💦 You might get slightly damp, but not drenched.",
+          "☔ Light enough that you could almost ignore it... almost.",
+          "👶 Gentle precipitation that won't ruin your day.",
+          "🌦️ A light layer will handle this easily.",
+          "💦 Barely qualifies as rain, but still counts!"
+        ]
+      },
+      "moderate": {
+        "codes": [61, 63],
+        "advice": [
+          "🌧️ Proper rain! Your umbrella will earn its keep.",
+          "💧 Dress like you're auditioning for a wet T-shirt contest (but don't).",
+          "☔ Raincoat required unless you enjoy the drowned rat look.",
+          "🚿 Nature's shower is set to 'full blast' today.",
+          "🌧️ This is real rain—waterproof protection is necessary.",
+          "💧 You'll get wet without proper rain gear.",
+          "☔ An umbrella is essential for staying dry.",
+          "🚿 Moderate rain means moderate protection needed.",
+          "🌧️ Waterproof jacket will keep you comfortable.",
+          "💧 This is the kind of rain that soaks through quickly.",
+          "☔ Don't underestimate moderate rain—it adds up fast.",
+          "🚿 Nature is watering the plants, and you're in the way.",
+          "🌧️ Proper rain gear makes all the difference today.",
+          "💧 Stay dry to stay comfortable and healthy."
+        ]
+      },
+      "heavy": {
+        "codes": [65],
+        "advice": [
+          "🌧️ Heavy rain! Waterproof everything!",
+          "💧 You'll need a boat, not an umbrella.",
+          "☔ Raincoat and boots mandatory today!",
+          "🚿 Nature's power wash in progress.",
+          "🌧️ Serious rain requires serious protection.",
+          "💧 Waterproof everything—jacket, pants, boots, bag.",
+          "☔ An umbrella alone won't cut it—you need full coverage.",
+          "🚿 Heavy rain can cause flooding—stay safe and dry.",
+          "🌧️ This is not the day to test your rain gear limits.",
+          "💧 Visibility will be reduced—bright colors help.",
+          "☔ Rain boots are essential—puddles will be deep.",
+          "🚿 Nature is doing a deep clean—stay out of the way.",
+          "🌧️ Heavy rain means heavy protection—no shortcuts.",
+          "💧 Your waterproof gear is about to earn its price tag."
+        ]
+      },
+      "showers": {
+        "codes": [80, 81, 82],
+        "advice": [
+          "🌦️ Surprise showers! Waterproof layers recommended.",
+          "🚿 On/off rain: nature can't make up its mind.",
+          "💦 Intermittent drenching—carry that umbrella!",
+          "🎲 Rain roulette: will you get wet? Probably!",
+          "🌦️ Unpredictable showers mean always be prepared.",
+          "🚿 Keep waterproof gear handy—you'll need it suddenly.",
+          "💦 Intermittent rain catches you off guard—stay ready.",
+          "🎲 The weather is playing games—don't be the loser.",
+          "🌦️ Surprise showers are nature's pop quiz—study up!",
+          "🚿 On/off means you'll be caught without protection.",
+          "💦 Carry an umbrella even if it looks clear.",
+          "🎲 Rain roulette: the house always wins—be prepared.",
+          "🌦️ Intermittent showers require constant vigilance.",
+          "🚿 Nature's indecisive weather needs your decisive preparation."
+        ]
+      },
+      "freezing": {
+        "codes": [66, 67],
+        "advice": [
+          "🧊☔ Freezing rain! Nature's most treacherous creation.",
+          "⚠️ Ice rink conditions—walk like a penguin!",
+          "🚶‍♂️🤸‍♂️ Slippery when wet... and frozen!",
+          "🎿 Who needs skates when sidewalks are this icy?",
+          "🧊☔ Freezing rain is extremely dangerous—stay indoors if possible.",
+          "⚠️ Ice forms instantly—walking becomes hazardous.",
+          "🚶‍♂️🤸‍♂️ Slow, careful steps are essential for safety.",
+          "🎿 This is serious ice—traction is critical.",
+          "🧊☔ Freezing rain creates invisible ice—extremely treacherous.",
+          "⚠️ Ice rink conditions mean slip-and-fall risk is high.",
+          "🚶‍♂️🤸‍♂️ Walk like a penguin: short steps, wide stance.",
+          "🎿 Ice cleats or boots with excellent traction are recommended.",
+          "🧊☔ This is one of the most dangerous weather conditions.",
+          "⚠️ Freezing rain demands respect and extreme caution."
+        ]
+      },
+      "warm": {
+        "tempMin": 25,
+        "advice": [
+          "☔🌡️ Warm rain! Refreshing or just sweaty?",
+          "💦🚿 Natural shower weather—embrace it!",
+          "🥵🌧️ Like a steamy bathroom, but everywhere.",
+          "🩳☔ Shorts and umbrella: the summer rain uniform.",
+          "☔🌡️ Warm rain can be refreshing in hot weather.",
+          "💦🚿 Light, breathable fabrics work best in warm rain.",
+          "🥵🌧️ Humidity plus rain equals steamy conditions.",
+          "🩳☔ Summer rain gear: practical and comfortable.",
+          "☔🌡️ Warm rain won't chill you, but might make you sticky.",
+          "💦🚿 Natural air conditioning, if you can handle getting wet.",
+          "🥵🌧️ Like a sauna with better lighting.",
+          "🩳☔ Shorts are fine—you'll dry quickly in warm weather.",
+          "☔🌡️ Warm rain is nature's way of cooling things down.",
+          "💦🚿 Embrace the warm shower from above."
+        ]
+      },
+      "cold": {
+        "tempMax": 10,
+        "advice": [
+          "🧥☔ Waterproof warmth is essential today!",
+          "❄️💧 Cold rain: nature's most unwelcome combo!",
+          "🥶☔ Dress like you're defending a castle in Scotland!",
+          "🚿🧊 Feels like a faulty shower—waterproof everything!",
+          "🧥☔ Insulated waterproof layers are non-negotiable.",
+          "❄️💧 Cold rain chills you quickly—stay dry and warm.",
+          "🥶☔ This combination is miserable without proper gear.",
+          "🚿🧊 Waterproof outer layer with warm inner layers needed.",
+          "🧥☔ Cold rain penetrates—waterproofing is critical.",
+          "❄️💧 The worst of both worlds: wet and cold.",
+          "🥶☔ Dress for survival, not fashion, in cold rain.",
+          "🚿🧊 Hypothermia risk increases with cold and wet conditions.",
+          "🧥☔ This weather demands serious waterproof insulation.",
+          "❄️💧 Cold rain is nature's way of testing your preparation."
+        ]
+      }
+    },
+    "snow": {
+      "codes": [71, 73, 75, 77, 85, 86],
+      "general": [
+        "❄️ Boots with grip are essential!",
+        "⛄ Dress like a happy snowman.",
+        "🎿 Channel your inner winter Olympian.",
+        "🧤 Lost glove probability: 87%.",
+        "❄️ Warm, waterproof boots with good traction are critical.",
+        "⛄ Layer up with warm, insulating clothing.",
+        "🎿 Winter sports gear works well for everyday snow.",
+        "🧤 Gloves or mittens are essential—fingers freeze fast.",
+        "❄️ Snow means cold—dress for temperature, not just precipitation.",
+        "⛄ Proper winter gear makes snow enjoyable instead of miserable.",
+        "🎿 Snow requires functional clothing over fashion.",
+        "🧤 Keep spare gloves—one always goes missing.",
+        "❄️ Snow boots prevent slips and keep feet warm and dry.",
+        "⛄ Dress in layers you can adjust as activity level changes."
+      ],
+      "light": {
+        "codes": [71, 73],
+        "advice": [
+          "❄️ Gentle snowflakes! Pretty but slippery.",
+          "🌨️ Light dusting—winter's gentle reminder.",
+          "⛄ Snow so light, snowmen might be disappointed.",
+          "🎄 Hallmark movie weather activated!",
+          "❄️ Light snow still requires warm, waterproof footwear.",
+          "🌨️ Even light snow can make surfaces slippery—be careful.",
+          "⛄ Light snow is beautiful but still requires proper gear.",
+          "🎄 Perfect for enjoying winter without the intensity.",
+          "❄️ Gentle snowflakes are pretty but still mean cold.",
+          "🌨️ Light dusting won't accumulate much, but it's still snow.",
+          "⛄ Snow so light you might forget it's actually winter.",
+          "🎄 Hallmark movie weather: picturesque and manageable.",
+          "❄️ Light snow is nature's gentle introduction to winter.",
+          "🌨️ Even light snow requires respect for slippery conditions."
+        ]
+      },
+      "moderate": {
+        "codes": [73],
+        "advice": [
+          "❄️ Moderate snow! Boots recommended.",
+          "🌨️ Winter wonderland in progress!",
+          "⛄ Perfect for snowball fights!",
+          "🎿 Dress warm and watch your step!",
+          "❄️ Moderate snow requires proper winter footwear.",
+          "🌨️ Accumulating snow means accumulating cold—dress accordingly.",
+          "⛄ Perfect weather for winter activities with proper gear.",
+          "🎿 Warm layers and waterproof outer shell are essential.",
+          "❄️ Moderate snow will accumulate—plan for deeper conditions.",
+          "🌨️ Winter wonderland is beautiful but requires preparation.",
+          "⛄ Snowball fights are fun, but dress for the aftermath.",
+          "🎿 Moderate snow is manageable with the right clothing.",
+          "❄️ This is proper winter weather—embrace it with proper gear.",
+          "🌨️ Moderate snow means moderate preparation needed."
+        ]
+      },
+      "heavy": {
+        "codes": [75, 85, 86],
+        "advice": [
+          "❄️⛄ Serious snow! Boots with grip mandatory.",
+          "🌨️ Winter wonderland or snowpocalypse? You decide!",
+          "🚗 Snowplow driver's favorite kind of day!",
+          "🏔️ Dress like you're summiting Everest (the sidewalk).",
+          "❄️⛄ Heavy snow requires serious winter gear and preparation.",
+          "🌨️ Deep snow means deep cold—insulation is critical.",
+          "🚗 Visibility will be reduced—bright colors help.",
+          "🏔️ This is expedition-level snow—dress accordingly.",
+          "❄️⛄ Heavy snow accumulation makes movement difficult.",
+          "🌨️ Snowpocalypse conditions require snowpocalypse preparation.",
+          "🚗 Travel becomes hazardous—dress for being stranded.",
+          "🏔️ Heavy snow demands respect and proper equipment.",
+          "❄️⛄ This is serious winter weather—take it seriously.",
+          "🌨️ Heavy snow is beautiful but requires serious gear."
+        ]
+      },
+      "grains": {
+        "codes": [77],
+        "advice": [
+          "🧂 Snow grains! Like nature's tiny styrofoam.",
+          "❄️ It's snowing... but in miniature!",
+          "🌾 Snow so small, it's basically cold sand.",
+          "⚪ Tiny snow: all the chill, half the fun.",
+          "🧂 Snow grains are still snow—dress for winter conditions.",
+          "❄️ Tiny snowflakes still mean cold temperatures.",
+          "🌾 Snow grains accumulate differently but still require warm gear.",
+          "⚪ Even tiny snow means winter weather preparation.",
+          "🧂 Snow grains might be small, but they're still cold.",
+          "❄️ Miniature snow is still snow—respect the conditions.",
+          "🌾 Snow so small you might question if it's real snow.",
+          "⚪ Tiny snow: less dramatic, still requires preparation.",
+          "🧂 Snow grains are nature's way of being subtle about winter.",
+          "❄️ Even miniature snow requires proper winter clothing."
+        ]
+      },
+      "blowing": {
+        "windSpeedMin": 8,
+        "advice": [
+          "🌬️❄️ Blowing snow! Horizontal winter is here.",
+          "🚪🌨️ Going out? Hope you enjoy facial exfoliation!",
+          "🥶💨 Snow + wind = nature's cold slap.",
+          "🧊🌀 Snow blizzard: stay in and drink cocoa!",
+          "🌬️❄️ Blowing snow reduces visibility and increases wind chill.",
+          "🚪🌨️ Wind-driven snow penetrates clothing—windproof layers essential.",
+          "🥶💨 Wind chill makes temperatures feel much colder.",
+          "🧊🌀 Blowing snow creates dangerous conditions—stay indoors if possible.",
+          "🌬️❄️ Horizontal snow means windproof outer layer is mandatory.",
+          "🚪🌨️ Exposed skin in blowing snow can freeze quickly.",
+          "🥶💨 Wind plus snow equals extreme cold exposure.",
+          "🧊🌀 Blizzard conditions require serious winter gear or staying inside.",
+          "🌬️❄️ Blowing snow is nature's way of making winter harder.",
+          "🚪🌨️ This is serious winter weather—respect it with proper preparation."
+        ]
+      }
+    },
+    "thunder": {
+      "codes": [95, 96, 99],
+      "advice": [
+        "⚡ Stay dry and avoid tall objects!",
+        "🌩️ Best to postpone outdoor adventures.",
+        "😨 Nature's light show demands respect!",
+        "🏠 Indoor hobbies highly recommended.",
+        "⚡ Lightning is extremely dangerous—seek indoor shelter immediately.",
+        "🌩️ Thunderstorms require postponing outdoor activities for safety.",
+        "😨 Lightning can strike from miles away—stay indoors.",
+        "🏠 Indoor activities are the only safe option during thunderstorms.",
+        "⚡ Avoid tall objects, open areas, and water during storms.",
+        "🌩️ Thunder means lightning is nearby—take it seriously.",
+        "😨 Nature's power display is beautiful but deadly—respect it.",
+        "🏠 Thunderstorms are nature's way of saying 'stay home today.'",
+        "⚡ Lightning safety: when thunder roars, go indoors.",
+        "🌩️ Postpone outdoor plans—thunderstorms are not to be ignored."
+      ]
+    },
+    "fog": {
+      "codes": [45, 48],
+      "advice": [
+        "🌫️ Bright colors for visibility!",
+        "👻 Mysterious weather calls for caution.",
+        "🔍 Where did everything go?",
+        "🎬 Perfect for dramatic, slow-mo entrances.",
+        "🌫️ Fog reduces visibility—bright, reflective clothing helps.",
+        "👻 Low visibility means increased caution is essential.",
+        "🔍 Fog makes navigation difficult—dress for being seen.",
+        "🎬 Dramatic weather requires practical preparation.",
+        "🌫️ Bright colors and reflective materials improve safety in fog.",
+        "👻 Foggy conditions reduce visibility for drivers—be visible.",
+        "🔍 Where did everything go? Stay visible so others can see you.",
+        "🎬 Fog is atmospheric but requires practical clothing choices.",
+        "🌫️ Visibility is reduced—make yourself as visible as possible.",
+        "👻 Mysterious fog is beautiful but demands safety precautions."
+      ]
+    },
+    "wind": {
+      "windSpeedMin": 25,
+      "advice": [
+        "💨 Windproof layers will save the day!",
+        "🎩 Secure that hat or it's gone!",
+        "🪁 Free kite flying included!",
+        "💇‍♂️ Forget your hairstyle, embrace the chaos.",
+        "💨 Strong winds increase heat loss—windproof outer layer is essential.",
+        "🎩 Secure all loose items—hats, scarves, and accessories.",
+        "🪁 Windy conditions make outdoor activities challenging.",
+        "💇‍♂️ Windproof clothing prevents wind chill and maintains warmth.",
+        "💨 High winds can make walking difficult—dress for stability.",
+        "🎩 Wind steals heat and accessories—protect both.",
+        "🪁 Strong winds require functional clothing over fashion.",
+        "💇‍♂️ Windy weather demands practical preparation.",
+        "💨 Windproof layers are your defense against wind chill.",
+        "🎩 Secure everything—the wind is not your friend today."
+      ]
+    },
+    "humid": {
+      "humidityMin": 75,
+      "advice": [
+        "💧 Breathable fabrics are key!",
+        "🌿 Dress for a tropical vibe.",
+        "🥵 You're not sweating, you're 'glistening.'",
+        "🪷 Embrace your inner rainforest creature.",
+        "💧 High humidity prevents sweat evaporation—breathable fabrics help.",
+        "🌿 Moisture-wicking materials keep you more comfortable.",
+        "🥵 High humidity makes temperatures feel hotter than they are.",
+        "🪷 Tropical conditions require tropical-appropriate clothing.",
+        "💧 Breathable, lightweight fabrics are essential in high humidity.",
+        "🌿 Natural fibers like cotton and linen work well in humidity.",
+        "🥵 Humidity makes you feel sticky—dress to minimize discomfort.",
+        "🪷 High humidity is like a permanent sauna—dress accordingly.",
+        "💧 Moisture management is key in humid conditions.",
+        "🌿 Humid weather demands breathable, moisture-wicking clothing."
+      ]
+    },
+    "sunny": {
+      "codes": [0, 1],
+      "advice": [
+        "☀️ Sunglasses and sunscreen advised!",
+        "😎 Protect your skin and your eyes.",
+        "🦎 Perfect lizard-basking weather.",
+        "🌻 Solar-powered mode activated.",
+        "☀️ UV protection is essential for skin and eye health.",
+        "😎 Sunscreen prevents sunburn and long-term skin damage.",
+        "🦎 Bright sun requires sunglasses to protect your vision.",
+        "🌻 Sun protection is a health necessity, not optional.",
+        "☀️ UV rays are strongest during sunny conditions—protect yourself.",
+        "😎 Sunglasses reduce glare and protect eyes from UV damage.",
+        "🦎 Perfect weather for outdoor activities with proper protection.",
+        "🌻 Solar-powered mode: enjoy the sun safely with protection.",
+        "☀️ Sunscreen and sunglasses are your daily defense against UV.",
+        "😎 Protect your skin and eyes—they're the only ones you have."
+      ]
+    }
+  },
+  "combinations": {
+    "hotHumid": {
+      "tempMin": 28,
+      "humidityMin": 70,
+      "advice": [
+        "💦 Light, breathable fabrics for this tropical feel!",
+        "🥵🌴 You're not sweating, you're 'pre-marinating'!",
+        "🌡️💧 Sauna mode: activated. Dress accordingly!",
+        "🦟🍃 Welcome to the human greenhouse exhibit!",
+        "💦 Hot and humid conditions require moisture-wicking, breathable fabrics.",
+        "🥵🌴 Heat plus humidity makes temperatures feel much hotter.",
+        "🌡️💧 Your body struggles to cool down—help it with proper clothing.",
+        "🦟🍃 Lightweight, loose-fitting clothes allow air circulation.",
+        "💦 This combination is extremely uncomfortable without proper gear.",
+        "🥵🌴 Hot and humid is nature's way of testing your endurance.",
+        "🌡️💧 Sauna conditions require sauna-appropriate clothing.",
+        "🦟🍃 Breathable fabrics are essential for comfort in hot, humid weather.",
+        "💦 Moisture management becomes critical in these conditions.",
+        "🥵🌴 Hot and humid demands respect and proper preparation."
+      ]
+    },
+    "windyCold": {
+      "tempMax": 5,
+      "windSpeedMin": 20,
+      "advice": [
+        "💨🧥 Windproof layers are your shield against the chill!",
+        "🥶💨 The wind is personally offended by your warmth!",
+        "🌬️❄️ Face-freezing winds detected! Battle armor needed!",
+        "🚪🌪️ Going outside? Remember, doors work both ways!",
+        "💨🧥 Wind plus cold creates dangerous wind chill conditions.",
+        "🥶💨 Windproof outer layer is essential to prevent heat loss.",
+        "🌬️❄️ Exposed skin can freeze quickly in windy, cold conditions.",
+        "🚪🌪️ This combination is extremely dangerous without proper gear.",
+        "💨🧥 Wind steals body heat—windproof layers are non-negotiable.",
+        "🥶💨 Cold wind penetrates clothing—insulation plus windproofing needed.",
+        "🌬️❄️ Face protection is critical in windy, cold conditions.",
+        "🚪🌪️ Windy and cold is nature's way of testing your preparation.",
+        "💨🧥 This combination requires serious winter gear for safety.",
+        "🥶💨 Windproof and insulated layers are your defense against this weather."
+      ]
+    }
+  }
+}
+

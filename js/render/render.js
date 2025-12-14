@@ -29,7 +29,7 @@ import getWeatherDescription from "../weather/weather-description.js";
 import getWeatherIcon from "../weather/weather-icon.js";
 import generateWardrobeAdvice from "../weather/weather-advice.js";
 
-const render = (position, weather) => {
+const render = async (position, weather) => {
     if(!weather) return;
     const mainContainer = document.querySelector('#main-container');
     const city = document.querySelector('.location-city');
@@ -49,7 +49,7 @@ const render = (position, weather) => {
 
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
-    icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
+     icon.src = `assets/icons/svg/${getWeatherIcon(weather.current.weather_code)}`;
      description.textContent = getWeatherDescription(weather.current.weather_code);
      temperature.textContent = Math.round(weather.current.temperature_2m);
      temperatureUnit.textContent = weather.current_units.temperature_2m;
@@ -60,7 +60,7 @@ const render = (position, weather) => {
     credits.textContent = background.photographer;
     link.href = background.url;
     
-    recommendation.textContent = generateWardrobeAdvice(weather);
+    recommendation.textContent = await generateWardrobeAdvice(weather);
 }
 
 export default render;

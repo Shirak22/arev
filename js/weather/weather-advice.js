@@ -24,308 +24,288 @@
  * SOFTWARE.
  */
 
+let adviceData = null;
+
+/**
+ * Load wardrobe advice data from JSON file
+ * @returns {Promise<Object>} Advice data object
+ */
+async function loadAdviceData() {
+    if (adviceData) return adviceData;
+    
+    try {
+        const response = await fetch('assets/wardrobe-advice-data.json');
+        adviceData = await response.json();
+        return adviceData;
+    } catch (error) {
+        console.error('Failed to load wardrobe advice data:', error);
+        throw error;
+    }
+}
+
+/**
+ * Get random advice from an array
+ * @param {Array<String>} adviceArray - Array of advice strings
+ * @returns {String} Random advice string
+ */
+function getRandomAdvice(adviceArray) {
+    if (!adviceArray || adviceArray.length === 0) return null;
+    return adviceArray[Math.floor(Math.random() * adviceArray.length)];
+}
+
+/**
+ * Determine weather condition from weather code
+ * @param {Number} weatherCode - Weather code from API
+ * @param {Object} conditions - Weather conditions mapping from JSON
+ * @returns {String|null} Condition name or null
+ */
+function getConditionFromCode(weatherCode, conditions) {
+    for (const [conditionName, conditionData] of Object.entries(conditions)) {
+        if (conditionData.codes && conditionData.codes.includes(weatherCode)) {
+            return conditionName;
+        }
+    }
+    return null;
+}
+
+/**
+ * Check for precipitation (rain, snow, showers)
+ * @param {Object} current - Current weather data
+ * @returns {String|null} Precipitation type or null
+ */
+function getPrecipitationType(current) {
+    if (current.rain > 0) return 'rain';
+    if (current.snowfall > 0) return 'snow';
+    if (current.showers > 0) return 'showers';
+    if (current.precipitation > 0) {
+        // Infer from weather code if precipitation exists
+        const code = current.weather_code;
+        if (code >= 51 && code <= 67) return 'rain';
+        if (code >= 71 && code <= 86) return 'snow';
+        if (code >= 80 && code <= 82) return 'showers';
+    }
+    return null;
+}
+
+/**
+ * Get temperature-based advice
+ * @param {Number} temp - Apparent temperature
+ * @param {Array} tempCategories - Temperature categories from JSON
+ * @returns {String|null} Temperature advice or null
+ */
+function getTemperatureAdvice(temp, tempCategories) {
+    for (const category of tempCategories) {
+        if (temp >= category.min && temp < category.max) {
+            return getRandomAdvice(category.advice);
+        }
+    }
+    return null;
+}
+
+/**
+ * Get condition-specific advice based on weather code and precipitation
+ * @param {Number} weatherCode - Weather code from API
+ * @param {String} condition - Condition name
+ * @param {String} precipitationType - Precipitation type
+ * @param {Number} temp - Apparent temperature
+ * @param {Number} windSpeed - Wind speed
+ * @param {Object} conditions - Weather conditions from JSON
+ * @returns {String|null} Condition advice or null
+ */
+function getConditionAdvice(weatherCode, condition, precipitationType, temp, windSpeed, conditions) {
+    if (!condition || !conditions[condition]) return null;
+    
+    const conditionData = conditions[condition];
+    
+    // Check for specific rain conditions
+    if (condition === 'rain') {
+        // Freezing rain (highest priority)
+        if (conditionData.freezing && conditionData.freezing.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.freezing.advice);
+        }
+        
+        // Warm rain
+        if (conditionData.warm && temp >= conditionData.warm.tempMin) {
+            return getRandomAdvice(conditionData.warm.advice);
+        }
+        
+        // Cold rain
+        if (conditionData.cold && temp <= conditionData.cold.tempMax) {
+            return getRandomAdvice(conditionData.cold.advice);
+        }
+        
+        // Light rain
+        if (conditionData.light && conditionData.light.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.light.advice);
+        }
+        
+        // Moderate rain
+        if (conditionData.moderate && conditionData.moderate.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.moderate.advice);
+        }
+        
+        // Heavy rain
+        if (conditionData.heavy && conditionData.heavy.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.heavy.advice);
+        }
+        
+        // Showers
+        if (conditionData.showers && conditionData.showers.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.showers.advice);
+        }
+        
+        // General rain advice
+        return getRandomAdvice(conditionData.general);
+    }
+    
+    // Check for specific snow conditions
+    if (condition === 'snow') {
+        // Blowing snow (wind + snow)
+        if (conditionData.blowing && windSpeed >= conditionData.blowing.windSpeedMin) {
+            return getRandomAdvice(conditionData.blowing.advice);
+        }
+        
+        // Light snow
+        if (conditionData.light && conditionData.light.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.light.advice);
+        }
+        
+        // Moderate snow
+        if (conditionData.moderate && conditionData.moderate.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.moderate.advice);
+        }
+        
+        // Heavy snow
+        if (conditionData.heavy && conditionData.heavy.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.heavy.advice);
+        }
+        
+        // Snow grains
+        if (conditionData.grains && conditionData.grains.codes.includes(weatherCode)) {
+            return getRandomAdvice(conditionData.grains.advice);
+        }
+        
+        // General snow advice
+        return getRandomAdvice(conditionData.general);
+    }
+    
+    // Other conditions (thunder, fog, sunny)
+    return getRandomAdvice(conditionData.advice);
+}
+
+/**
+ * Check for wind or humidity conditions
+ * @param {Number} windSpeed - Wind speed
+ * @param {Number} humidity - Relative humidity
+ * @param {Object} conditions - Weather conditions from JSON
+ * @returns {String|null} Wind or humidity advice or null
+ */
+function getWindOrHumidityAdvice(windSpeed, humidity, conditions) {
+    // Check wind
+    if (conditions.wind && windSpeed >= conditions.wind.windSpeedMin) {
+        return getRandomAdvice(conditions.wind.advice);
+    }
+    
+    // Check humidity
+    if (conditions.humid && humidity >= conditions.humid.humidityMin) {
+        return getRandomAdvice(conditions.humid.advice);
+    }
+    
+    return null;
+}
+
+/**
+ * Check for special combinations
+ * @param {Number} temp - Apparent temperature
+ * @param {Number} humidity - Relative humidity
+ * @param {Number} windSpeed - Wind speed
+ * @param {Object} combinations - Combination rules from JSON
+ * @returns {String|null} Combination advice or null
+ */
+function getCombinationAdvice(temp, humidity, windSpeed, combinations) {
+    // Hot and humid
+    if (combinations.hotHumid && 
+        temp >= combinations.hotHumid.tempMin && 
+        humidity >= combinations.hotHumid.humidityMin) {
+        return getRandomAdvice(combinations.hotHumid.advice);
+    }
+    
+    // Windy and cold
+    if (combinations.windyCold && 
+        temp <= combinations.windyCold.tempMax && 
+        windSpeed >= combinations.windyCold.windSpeedMin) {
+        return getRandomAdvice(combinations.windyCold.advice);
+    }
+    
+    return null;
+}
+
 /**
  * Generate beautiful one-line wardrobe advice from weather data
  * @param {Object} weatherData - Weather data from Open-Meteo API
- * @returns {String} Beautifully formatted wardrobe advice (1-2 lines)
+ * @returns {Promise<String>} Beautifully formatted wardrobe advice (1-2 lines)
  */
-function generateWardrobeAdvice(weatherData) {
+async function generateWardrobeAdvice(weatherData) {
+    // Load advice data
+    const data = await loadAdviceData();
+    
     // Extract data from API response
     const current = weatherData.current;
     const temp = current.apparent_temperature;
-    const weather_code = current.weather_code;
+    const weatherCode = current.weather_code;
     const humidity = current.relative_humidity_2m;
     const windSpeed = current.wind_speed_10m;
     
-    // Define temperature categories with emojis
-    const tempCategories = [
-        { min: -Infinity, max: -10, advice: [
-          "❄️ Layer like an Arctic explorer!", 
-          "🥶 Bundle up—it's frostbite weather!",
-          "🧊 You could freeze coffee mid-pour!",
-          "🐧 Waddle-worthy weather ahead!"
-        ]},
-        { min: -10, max: 0, advice: [
-          "🧥 Cozy coat weather—embrace the puff!", 
-          "🧣 Scarf and gloves are your best friends.",
-          "⛄ Perfect snowman-building conditions!",
-          "☕ Hot beverage required by law (unofficially)."
-        ]},
-        { min: 0, max: 10, advice: [
-          "🧥 Jacket recommended with warm layers.", 
-          "🍂 Perfect for your favorite autumn jacket.",
-          "🦆 If ducks aren't shivering, you're overdressed.",
-          "🍁 Crunchy leaf weather activated!"
-        ]},
-        { min: 10, max: 16, advice: [
-          "👔 Light jacket or a stylish sweater.", 
-          "🎩 Channel your inner cozy mystery novelist.",
-          "🌬️ 'Brisk' is the forecasters' code for 'jacket optional but wise.'",
-          "📚 Library-cardigan weather unlocked!"
-        ]},
-        { min: 16, max: 22, advice: [
-          "👚 Light layers for mild perfection.", 
-          "🌤️ The 'just right' Goldilocks zone!",
-          "😌 Temperature so nice, you'll forget to check it.",
-          "🎭 The 'easy to layer, easy to shed' drama."
-        ]},
-        { min: 22, max: 28, advice: [
-          "👕 T-shirt weather—show some skin!", 
-          "🩳 Perfect for shorts and sunshine.",
-          "🥤 Iced drink territory—enjoy responsibly!",
-          "😎 Sunglasses on, worries off."
-        ]},
-        { min: 28, max: 35, advice: [
-          "😎 Light, breezy fabrics recommended.", 
-          "🧊 Stay cool and hydrated out there!",
-          "🔥 Dress like you respect the sun's power.",
-          "🥵 'Is it hot in here or is it just weather?'"
-        ]},
-        { min: 35, max: Infinity, advice: [
-          "🔥 Seek shade and wear minimal layers.", 
-          "🧴 Sunscreen is non-negotiable today!",
-          "🥵 You might melt, but your style won't.",
-          "🧊 Consider carrying personal AC unit."
-        ]}
-      ];
+    // Determine condition from weather code
+    const condition = getConditionFromCode(weatherCode, data.weatherConditions);
     
-    // Define weather condition modifiers
-    const weatherModifiers = {
-        rain: [
-          "☔ Don't forget your umbrella!", 
-          "🌧️ A waterproof layer would be wise.",
-          "🦆 Duck-approved weather today!",
-          "💧 Spontaneous shower simulator engaged."
-        ],
-        snow: [
-          "❄️ Boots with grip are essential!", 
-          "⛄ Dress like a happy snowman.",
-          "🎿 Channel your inner winter Olympian.",
-          "🧤 Lost glove probability: 87%."
-        ],
-        thunder: [
-          "⚡ Stay dry and avoid tall objects!", 
-          "🌩️ Best to postpone outdoor adventures.",
-          "😨 Nature's light show demands respect!",
-          "🏠 Indoor hobbies highly recommended."
-        ],
-        fog: [
-          "🌫️ Bright colors for visibility!", 
-          "👻 Mysterious weather calls for caution.",
-          "🔍 Where did everything go?",
-          "🎬 Perfect for dramatic, slow-mo entrances."
-        ],
-        wind: [
-          "💨 Windproof layers will save the day!", 
-          "🎩 Secure that hat or it's gone!",
-          "🪁 Free kite flying included!",
-          "💇‍♂️ Forget your hairstyle, embrace the chaos."
-        ],
-        humid: [
-          "💧 Breathable fabrics are key!", 
-          "🌿 Dress for a tropical vibe.",
-          "🥵 You're not sweating, you're 'glistening.'",
-          "🪷 Embrace your inner rainforest creature."
-        ],
-        sunny: [
-          "☀️ Sunglasses and sunscreen advised!", 
-          "😎 Protect your skin and your eyes.",
-          "🦎 Perfect lizard-basking weather.",
-          "🌻 Solar-powered mode activated."
-        ]
-      };
+    // Check precipitation
+    const precipitationType = getPrecipitationType(current);
     
-    // Map weather codes to conditions
-    const codeToCondition = {
-      rain: [55,56,57,61,66,67],
-      snow: [71,73,75,77],
-      thunder: [95,96,99],
-      fog: [45,48],
-      sunny: [0,1]
-    };
-        // Determine weather condition
-        let conditionAdvice = "";
-        let condition = "";
-    //enhanced rain conditions
-    // Add to your existing rain conditions
-if (condition === "rain") {
-  // Light rain vs heavy rain
-  if (weather_code === 51 || weather_code === 53) { // Light drizzle
-    const lightRainAdvice = [
-      "🌦️ Just a spritz! Light jacket will do.",
-      "💦 Mist-erious weather—barely need an umbrella!",
-      "☔ Light sprinkle: your hair's worst frienemy.",
-      "👶 Rain so light, babies could use it as a bath."
-    ];
-    return lightRainAdvice[Math.floor(Math.random() * lightRainAdvice.length)];
-  }
-  
-  if (weather_code === 63 || weather_code === 65) { // Moderate/heavy rain
-    const heavyRainAdvice = [
-      "🌧️ Proper rain! Your umbrella will earn its keep.",
-      "💧 Dress like you're auditioning for a wet T-shirt contest (but don't).",
-      "☔ Raincoat required unless you enjoy the drowned rat look.",
-      "🚿 Nature's shower is set to 'full blast' today."
-    ];
-    return heavyRainAdvice[Math.floor(Math.random() * heavyRainAdvice.length)];
-  }
-  
-  if (weather_code >= 80 && weather_code <= 82) { // Rain showers
-    const showerAdvice = [
-      "🌦️ Surprise showers! Waterproof layers recommended.",
-      "🚿 On/off rain: nature can't make up its mind.",
-      "💦 Intermittent drenching—carry that umbrella!",
-      "🎲 Rain roulette: will you get wet? Probably!"
-    ];
-    return showerAdvice[Math.floor(Math.random() * showerAdvice.length)];
-  }
-}
-  // enhanced snow conditions
-  // Add to your existing snow conditions
-if (condition === "snow") {
-  // Light snow vs heavy snow
-  if (weather_code === 71 || weather_code === 73) { // Light/moderate snow
-    const lightSnowAdvice = [
-      "❄️ Gentle snowflakes! Pretty but slippery.",
-      "🌨️ Light dusting—winter's gentle reminder.",
-      "⛄ Snow so light, snowmen might be disappointed.",
-      "🎄 Hallmark movie weather activated!"
-    ];
-    return lightSnowAdvice[Math.floor(Math.random() * lightSnowAdvice.length)];
-  }
-  
-  if (weather_code === 75 || weather_code === 85 || weather_code === 86) { // Heavy snow/snow showers
-    const heavySnowAdvice = [
-      "❄️⛄ Serious snow! Boots with grip mandatory.",
-      "🌨️ Winter wonderland or snowpocalypse? You decide!",
-      "🚗 Snowplow driver's favorite kind of day!",
-      "🏔️ Dress like you're summiting Everest (the sidewalk)."
-    ];
-    return heavySnowAdvice[Math.floor(Math.random() * heavySnowAdvice.length)];
-  }
-  
-  if (weather_code === 77) { // Snow grains
-    const grainSnowAdvice = [
-      "🧂 Snow grains! Like nature's tiny styrofoam.",
-      "❄️ It's snowing... but in miniature!",
-      "🌾 Snow so small, it's basically cold sand.",
-      "⚪ Tiny snow: all the chill, half the fun."
-    ];
-    return grainSnowAdvice[Math.floor(Math.random() * grainSnowAdvice.length)];
-  }
-}
-
-//special rain/snow combos
-
-// Freezing rain (worst of both worlds)
-if (weather_code === 66 || weather_code === 67) { // Freezing rain
-  const freezingRainAdvice = [
-    "🧊☔ Freezing rain! Nature's most treacherous creation.",
-    "⚠️ Ice rink conditions—walk like a penguin!",
-    "🚶‍♂️🤸‍♂️ Slippery when wet... and frozen!",
-    "🎿 Who needs skates when sidewalks are this icy?"
-  ];
-  return freezingRainAdvice[Math.floor(Math.random() * freezingRainAdvice.length)];
-}
-
-// Rain with specific temperature ranges
-if (condition === "rain" && temp > 25) {
-  const warmRainAdvice = [
-    "☔🌡️ Warm rain! Refreshing or just sweaty?",
-    "💦🚿 Natural shower weather—embrace it!",
-    "🥵🌧️ Like a steamy bathroom, but everywhere.",
-    "🩳☔ Shorts and umbrella: the summer rain uniform."
-  ];
-  return warmRainAdvice[Math.floor(Math.random() * warmRainAdvice.length)];
-}
-
-// Snow with strong wind
-if (condition === "snow" && windSpeed > 8) { // ~30 km/h
-  const blowingSnowAdvice = [
-    "🌬️❄️ Blowing snow! Horizontal winter is here.",
-    "🚪🌨️ Going out? Hope you enjoy facial exfoliation!",
-    "🥶💨 Snow + wind = nature's cold slap.",
-    "🧊🌀 Snow blizzard: stay in and drink cocoa!"
-  ];
-  return blowingSnowAdvice[Math.floor(Math.random() * blowingSnowAdvice.length)];
-}
-    
-    // Determine temperature category
-    let tempAdvice = "";
-    for (const category of tempCategories) {
-      if (temp >= category.min && temp < category.max) {
-        tempAdvice = category.advice[Math.floor(Math.random() * category.advice.length)];
-        break;
-      }
+    // Priority 1: Special combinations (highest priority)
+    const combinationAdvice = getCombinationAdvice(temp, humidity, windSpeed, data.combinations);
+    if (combinationAdvice) {
+        return combinationAdvice;
     }
     
-
-    
-    // Check weather code
-    for (const [cond, codes] of Object.entries(codeToCondition)) {
-      if (codes.includes(weather_code)) {
-        condition = cond;
-        const options = weatherModifiers[cond];
-        conditionAdvice = options[Math.floor(Math.random() * options.length)];
-        break;
-      }
+    // Priority 2: Condition-specific advice (weather code + precipitation)
+    let conditionAdvice = null;
+    if (condition) {
+        conditionAdvice = getConditionAdvice(
+            weatherCode, 
+            condition, 
+            precipitationType, 
+            temp, 
+            windSpeed, 
+            data.weatherConditions
+        );
     }
     
-    // Check for wind/humidity if no condition from weather code
+    // Priority 3: Wind or humidity (if no condition from weather code)
     if (!conditionAdvice) {
-      if (windSpeed > 25) {
-        conditionAdvice = weatherModifiers.wind[Math.floor(Math.random() * weatherModifiers.wind.length)];
-      } else if (humidity > 75) {
-        conditionAdvice = weatherModifiers.humid[Math.floor(Math.random() * weatherModifiers.humid.length)];
-      }
+        conditionAdvice = getWindOrHumidityAdvice(windSpeed, humidity, data.weatherConditions);
     }
     
-    // Special combinations (override for specific cases)
-    if (temp < 10 && condition === "rain") {
-        const coldRainAdvice = [
-          "🧥☔ Waterproof warmth is essential today!",
-          "❄️💧 Cold rain: nature's most unwelcome combo!",
-          "🥶☔ Dress like you're defending a castle in Scotland!",
-          "🚿🧊 Feels like a faulty shower—waterproof everything!"
-        ];
-        return coldRainAdvice[Math.floor(Math.random() * coldRainAdvice.length)];
-      }
-      if (temp > 28 && humidity > 70) {
-        const hotHumidAdvice = [
-          "💦 Light, breathable fabrics for this tropical feel!",
-          "🥵🌴 You're not sweating, you're 'pre-marinating'!",
-          "🌡️💧 Sauna mode: activated. Dress accordingly!",
-          "🦟🍃 Welcome to the human greenhouse exhibit!"
-        ];
-        return hotHumidAdvice[Math.floor(Math.random() * hotHumidAdvice.length)];
-      }
-
-    if (temp < 5 && windSpeed > 20) {
-  const windyColdAdvice = [
-    "💨🧥 Windproof layers are your shield against the chill!",
-    "🥶💨 The wind is personally offended by your warmth!",
-    "🌬️❄️ Face-freezing winds detected! Battle armor needed!",
-    "🚪🌪️ Going outside? Remember, doors work both ways!"
-  ];
-  return windyColdAdvice[Math.floor(Math.random() * windyColdAdvice.length)];
-}
+    // Priority 4: Temperature advice
+    const tempAdvice = getTemperatureAdvice(temp, data.temperatureCategories);
     
-    // Combine advice (max 2 lines)
+    // Combine advice intelligently
     if (conditionAdvice && tempAdvice) {
-      // 50% chance of combining, 50% chance of just one
-      if (Math.random() > 0.5) {
-        return `${tempAdvice} ${conditionAdvice}`;
-      } else {
-        // Return the more critical one
-        if (condition === "thunder" || condition === "snow" || temp < 0 || temp > 35) {
-          return conditionAdvice;
-        } else {
-          return tempAdvice;
+        // For critical conditions, prioritize condition advice
+        if (condition === 'thunder' || condition === 'snow' || temp < 0 || temp > 35) {
+            return conditionAdvice;
         }
-      }
+        
+        // 50% chance of combining both
+        if (Math.random() > 0.5) {
+            return `${tempAdvice} ${conditionAdvice}`;
+        } else {
+            return conditionAdvice;
+        }
     }
     
-    return tempAdvice + " " + conditionAdvice || "Dress comfortably for today's weather!";
-  }
-  
+    // Return whichever is available
+    return conditionAdvice || tempAdvice || "Dress comfortably for today's weather!";
+}
+
 export default generateWardrobeAdvice;
