@@ -455,7 +455,7 @@
         ]
       },
       "blowing": {
-        "windSpeedMin": 8,
+        "windSpeedMin": 20,
         "severity": 9,
         "alwaysShow": true,
         "tone": "serious",
@@ -522,7 +522,7 @@
       ]
     },
     "wind": {
-      "windSpeedMin": 23,
+      "windSpeedMin": 24,
       "severity": 7,
       "alwaysShow": false,
       "tone": "fun",
