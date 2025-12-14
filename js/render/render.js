@@ -45,7 +45,6 @@ const render = async (position, weather) => {
     const credits = document.querySelector('.photograph-credits-name');
     const link = document.querySelector('.photograph-credits-link');
     const background = getWeatherBackground(weather.current.weather_code, weather.current.is_day);
-    console.log("##background##",weather);
 
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //

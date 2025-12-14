@@ -26,7 +26,6 @@
 
 const cachePurge = async () => {
     await chrome.storage.local.clear();
-    console.log('Cache purged');
 }
 
 

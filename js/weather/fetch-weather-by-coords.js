@@ -38,10 +38,8 @@ const fetchWeatherByCoords = async (latitude, longitude, USA = false) => {
     }
     const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&${weatherParameters}&${forecastParameters}&${timezone}${units_parameter}`;
         try {
-        console.log("##units##",units_parameter);
         const fetchWeather = await fetch(url); 
         const data = await fetchWeather.json();
-        console.log("##data##",data);
         return data ; 
 
 
