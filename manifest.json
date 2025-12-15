@@ -12,7 +12,7 @@
     ],
     "host_permissions": [
         "https://*.open-meteo.com/*",
-        "https://*.ip-api.com/*",
+        "http://*.ip-api.com/*",
         "https://*.bigdatacloud.com/*"
     ],
     "background": {
