@@ -5,7 +5,6 @@
     "version": "1.0.0",
     "description": "A beautiful, minimalist new tab that reflects your local weather.",
     "permissions": [
-        "activeTab",
         "storage",
         "geolocation",
         "tabs"
