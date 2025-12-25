@@ -2,12 +2,11 @@
 {
     "manifest_version": 3,
     "name": "Arev",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A beautiful, minimalist new tab that reflects your local weather.",
     "permissions": [
         "storage",
-        "geolocation",
-        "tabs"
+        "geolocation"
     ],
     "host_permissions": [
         "https://*.open-meteo.com/*",
