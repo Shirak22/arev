@@ -1,5 +1,12 @@
 ##### TODO LIST ##### 
 - topSites most visited sites to show 
+- link managere, user can add own links. 
+- add snow depth to get the background with the ground condition 
+
+- adding freezig level 
+- add feedback to get feedback from users. 
+- bug report 
+- Optimise all background images and reduce the size. 
 - 
 
 
@@ -7,7 +14,8 @@
 
 
 ####### in progress ######
-- fix the advice to be more percise; 
+- error handling , 
+- add search by city to settings page location section 
 
 
 
@@ -16,3 +24,4 @@
 - fix weather container size on resize event. to change when the height changes not the width; 
 - add clear_night to background if its night
 - add fehrenheit or celicus to settings 
+- fix the advice to be more percise; 

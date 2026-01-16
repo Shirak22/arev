@@ -28,17 +28,19 @@ import { getFromCache, storeToCache } from "./cache.js";
 import render from "./render/render.js";
 import { loadWeatherIconsMapping } from "./weather/weather-icon.js";
 import renderForecast from "./weather/weather-forecast.js";
+import { toaster } from "./render/toaster.js";
 
 
 
-
-export async function getPositionByGeolocation() {
+export const getPositionByGeolocation = async () => {
    const position = new Promise((resolve, reject)=> {
     try {   
          navigator.geolocation.getCurrentPosition((position)=> {
+            toaster.show('Geolocation API , Position fetched successfully', 'success');
         resolve(position);
         });
     } catch (error) {
+        toaster.show('Geolocation API , Error fetching location', 'error');
         reject(error);
     }
    }) 
@@ -47,21 +49,27 @@ export async function getPositionByGeolocation() {
   return  location;
 }
 
-export async function getLocationByIp() {
+export const getLocationByIp = async () => {
     const response = await chrome.runtime.sendMessage({ type: 'getLocation' });
-    if(response.error) return null;
+    if(response.error) {
+        toaster.show('IP API , Error fetching location', 'error');
+        return;
+    };
+    toaster.show('IP API , Position fetched successfully', 'success');
     return response;
 }
 
-export async function getWeatherByCoords(latitude, longitude,USA) {
+export const getWeatherByCoords = async (latitude, longitude,USA) => {
     if(!latitude || !longitude){
-        console.error("coords are not correct... "); 
+        toaster.show('Coords are not correct...', 'error');
         return; 
     }
     const response = await chrome.runtime.sendMessage({ type: 'getWeatherByCoords', latitude: latitude, longitude: longitude, USA: USA });
     if(response) {
+        toaster.show('Weather data fetched successfully', 'success');
         return response;
     }else {
+        toaster.show('Weather data not found', 'error');
         return null;
     }
 }
@@ -74,10 +82,10 @@ let weather = null;
 let cachedPosition = null ; 
 let cachedWeather = null; 
 
-const setup = async () => {
+export const setup = async () => {
   // Ensure weather icons mapping is loaded before rendering
   await loadWeatherIconsMapping();
-  
+ 
   cachedPosition  = await getFromCache('position');
   cachedWeather = await getFromCache('weather'); 
 
@@ -88,24 +96,28 @@ const setup = async () => {
   }else {
     position = cachedPosition.position; 
   }
+  
 
     if (!cachedWeather) {
+        if(!position) {
+            toaster.show('Position not found , check your internet connection...', 'error',10000);
+            return;
+          }
         weather = await getWeatherByCoords(position.latitude, position.longitude,position.USA);
+        toaster.show('Weather data fetched successfully', 'success');
         weather && await storeToCache('weather', weather);
     } else {
         weather = cachedWeather.weather;
     }
 
     if(position && weather) {
-        
         await render(position, weather);
         renderForecast(weather);
-    }
-    else {
-        console.error('Position or weather not found');
+    } else {
+        toaster.show('Check your internet connection...', 'error');
+        console.log("no internet connection avalible ");
+        return;
     }
     
 
 }   
-
-export { setup };

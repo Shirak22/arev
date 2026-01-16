@@ -25,47 +25,14 @@
  */
 
 import { getFromCache, storeToCache } from "./cache.js";
-import render from "./render/render.js";
+import { toaster } from "./render/toaster.js";
 import { loadWeatherIconsMapping } from "./weather/weather-icon.js";
-import renderForecast from "./weather/weather-forecast.js";
+
 import { renderPopup } from "./render/render-popup.js";
+import { getLocationByIp, getPositionByGeolocation, getWeatherByCoords } from "./new-tab.js";
 
 
 
-
-async function getPositionByGeolocation() {
-   const position = new Promise((resolve, reject)=> {
-    try {   
-         navigator.geolocation.getCurrentPosition((position)=> {
-        resolve(position);
-        });
-    } catch (error) {
-        reject(error);
-    }
-   }) 
-   const getPosition = await position; 
-  const location = await chrome.runtime.sendMessage({type: 'getLocationByCoords', latitude:getPosition.coords.latitude, longitude: getPosition.coords.longitude})
-  return  location;
-}
-
-async function getLocationByIp() {
-    const response = await chrome.runtime.sendMessage({ type: 'getLocation' });
-    if(response.error) return null;
-    return response;
-}
-
-async function getWeatherByCoords(latitude, longitude,USA) {
-    if(!latitude || !longitude){
-        console.error("coords are not correct... "); 
-        return; 
-    }
-    const response = await chrome.runtime.sendMessage({ type: 'getWeatherByCoords', latitude: latitude, longitude: longitude, USA: USA });
-    if(response) {
-        return response;
-    }else {
-        return null;
-    }
-}
 
 
 
@@ -97,7 +64,8 @@ const setup = async () => {
         weather = cachedWeather.weather;
     }
 
-    
+
+
     renderPopup( weather || null);
 
     // Settings gear icon click handler

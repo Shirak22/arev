@@ -26,7 +26,6 @@
 
 const weatherForecastWindow = document.querySelector('.weather-forecast');
 const weatherForecastDays = document.querySelector('.weather-forecast-days');
-const weatherForecastTitle = document.querySelector('.weather-forecast-title');
 
 
 const animateWeatherForecast = () => {

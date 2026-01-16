@@ -44,6 +44,8 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500;700&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="css/toaster.css">
+
     <title>Arev</title>
 </head>
 
@@ -66,12 +68,17 @@
                     </section>
 
                     <div class="settings-location-buttons-container">
-                        <button class="settings-refresh-button">
-                            <img src="assets/icons/svg/refresh.svg" alt="Refresh Icon">
-                            Refresh location</button>
-                        <!-- <button class="settings-manual-button">
+                        <div class="settings-location-checkbox-container">
+                            <input type="checkbox" id="settings-location-checkbox" checked>
+                            <label for="settings-location-checkbox" >Auto</label>
+                          
+                        </div>
+                        <button class="settings-get-location-button">
+                            <img src="assets/icons/svg/refresh.svg" alt="get location Icon">
+                            Get current location</button>
+                        <button class="settings-manual-button">
                             <img src="assets/icons/svg/position.svg" alt="Manual Icon">
-                            Use geolocation</button> -->
+                            Use geolocation</button>
                     </div>
                     <div class="settings-settings-buttons-container">
                         <button class="settings-about-button">About</button>
@@ -88,6 +95,7 @@
             </footer>
         </main>
     </section>
+    <div class="toaster"></div>
     <script src="js/settings.js" type="module" ></script>
 </body>
 

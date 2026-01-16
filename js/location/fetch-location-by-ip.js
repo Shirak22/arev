@@ -31,7 +31,7 @@ const fetchLocationByIP = async () => {
         const data = await response.json();
         return data || null;
     } catch (error) {
-        return null
+        return null;
     }
 }   
 
