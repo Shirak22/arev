@@ -64,25 +64,41 @@
                         </svg></span>Location</h3>
                 <section class="settings-content-container">
                     <section class="settings-location-container">
-                    
+                        <p class="settings-location-value">No location data yet.</p>
                     </section>
+                    <section class="settings-location-methods">
+                        <label><input type="radio" name="location-method" value="ip" checked> IP (default)</label>
+                        <label><input type="radio" name="location-method" value="manual"> Set manually</label>
+                        <label><input type="radio" name="location-method" value="geolocation"> Geolocation</label>
+                    </section>
+                    <section class="settings-manual-location">
+                        <input class="settings-city-input" type="text" placeholder="City">
+                        <input class="settings-country-input" type="text" placeholder="Country (optional)">
+                        <div class="settings-city-suggestions" role="listbox" aria-label="City suggestions"></div>
+                    </section>
+                    <button class="settings-refresh-button">
+                        <img src="assets/icons/svg/refresh.svg" alt="refresh Icon">
+                        Save and refresh location
+                    </button>
+                </section>
 
-                    <div class="settings-location-buttons-container">
-                        <div class="settings-location-checkbox-container">
-                            <input type="checkbox" id="settings-location-checkbox" checked>
-                            <label for="settings-location-checkbox" >Auto</label>
-                          
-                        </div>
-                        <button class="settings-get-location-button">
-                            <img src="assets/icons/svg/refresh.svg" alt="get location Icon">
-                            Get current location</button>
-                        <button class="settings-manual-button">
-                            <img src="assets/icons/svg/position.svg" alt="Manual Icon">
-                            Use geolocation</button>
-                    </div>
+                <h3 class="settings-title">Background</h3>
+                <section class="settings-content-container">
+                    <section class="settings-location-container">
+                        <section class="settings-background-methods">
+                            <label><input type="radio" name="background-mode" value="dynamic" checked> Dynamic background</label>
+                            <label><input type="radio" name="background-mode" value="custom"> Set your own background</label>
+                        </section>
+                        <input class="settings-background-input" type="url" placeholder="https://example.com/background.jpg">
+                        <button class="settings-save-background-button">Save background preference</button>
+                    </section>
+                </section>
+
+                <h3 class="settings-title">More</h3>
+                <section class="settings-content-container">
                     <div class="settings-settings-buttons-container">
-                        <button class="settings-about-button">About</button>
-                        <button class="settings-terms-button">Credits</button>
+                        <button type="button" class="settings-about-button">About</button>
+                        <button type="button" class="settings-terms-button">Credits</button>
                     </div>
                 </section>
             </section>

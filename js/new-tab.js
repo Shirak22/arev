@@ -25,51 +25,105 @@
  */
 
 import { getFromCache, storeToCache } from "./cache.js";
-import render from "./render/render.js";
+import render, { renderOfflineClock } from "./render/render.js";
 import { loadWeatherIconsMapping } from "./weather/weather-icon.js";
 import renderForecast from "./weather/weather-forecast.js";
 import { toaster } from "./render/toaster.js";
+import { getPreferences } from "./settings-preferences.js";
 
 
 
-export const getPositionByGeolocation = async () => {
-   const position = new Promise((resolve, reject)=> {
-    try {   
-         navigator.geolocation.getCurrentPosition((position)=> {
-            toaster.show('Geolocation API , Position fetched successfully', 'success');
-        resolve(position);
-        });
-    } catch (error) {
-        toaster.show('Geolocation API , Error fetching location', 'error');
-        reject(error);
-    }
-   }) 
-   const getPosition = await position; 
-  const location = await chrome.runtime.sendMessage({type: 'getLocationByCoords', latitude:getPosition.coords.latitude, longitude: getPosition.coords.longitude})
-  return  location;
+export const getPositionByGeolocation = async (notify = true) => {
+   try {
+      const position = await new Promise((resolve, reject) => {
+        navigator.geolocation.getCurrentPosition(
+          (currentPosition) => resolve(currentPosition),
+          (error) => reject(error)
+        );
+      });
+
+      const location = await chrome.runtime.sendMessage({
+        type: 'getLocationByCoords',
+        latitude: position.coords.latitude,
+        longitude: position.coords.longitude
+      });
+
+      if (!location || location.error) {
+        if (notify) toaster.show('Geolocation error: could not resolve location.', 'error');
+        return null;
+      }
+
+      return location;
+   } catch (error) {
+      if (notify) toaster.show('Geolocation error: permission denied or unavailable.', 'error');
+      return null;
+   }
 }
 
-export const getLocationByIp = async () => {
-    const response = await chrome.runtime.sendMessage({ type: 'getLocation' });
-    if(response.error) {
-        toaster.show('IP API , Error fetching location', 'error');
-        return;
-    };
-    toaster.show('IP API , Position fetched successfully', 'success');
-    return response;
-}
-
-export const getWeatherByCoords = async (latitude, longitude,USA) => {
-    if(!latitude || !longitude){
-        toaster.show('Coords are not correct...', 'error');
-        return; 
-    }
-    const response = await chrome.runtime.sendMessage({ type: 'getWeatherByCoords', latitude: latitude, longitude: longitude, USA: USA });
-    if(response) {
-        toaster.show('Weather data fetched successfully', 'success');
+export const getLocationByIp = async (notify = true) => {
+    try {
+        const response = await chrome.runtime.sendMessage({ type: 'getLocation' });
+        if (!response || response.error) {
+            if (notify) toaster.show('IP location error: unable to fetch location.', 'error');
+            return null;
+        }
         return response;
-    }else {
-        toaster.show('Weather data not found', 'error');
+    } catch (error) {
+        if (notify) toaster.show('IP location error: service unavailable.', 'error');
+        return null;
+    }
+}
+
+export const getLocationByManualCity = async (city, country = "", notify = true) => {
+    const cityValue = city?.trim();
+    const countryValue = country?.trim();
+
+    if (!cityValue) {
+        if (notify) toaster.show("Manual location error: city is required.", "error");
+        return null;
+    }
+
+    const query = countryValue ? `${cityValue}, ${countryValue}` : cityValue;
+    const endpoint = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(query)}&count=1&language=en&format=json`;
+
+    try {
+        const response = await fetch(endpoint);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+        const data = await response.json();
+        const match = data?.results?.[0];
+        if (!match) {
+            if (notify) toaster.show("Manual location error: city not found.", "error");
+            return null;
+        }
+
+        return {
+            city: match.name,
+            country: match.country,
+            latitude: match.latitude,
+            longitude: match.longitude,
+            USA: match.country_code === "US"
+        };
+    } catch (error) {
+        if (notify) toaster.show("Manual location error: lookup failed.", "error");
+        return null;
+    }
+};
+
+export const getWeatherByCoords = async (latitude, longitude,USA, notify = true) => {
+    if(!latitude || !longitude){
+        if (notify) toaster.show('Invalid coordinates.', 'error');
+        return null; 
+    }
+    try {
+        const response = await chrome.runtime.sendMessage({ type: 'getWeatherByCoords', latitude: latitude, longitude: longitude, USA: USA });
+        if (!response || response.error) {
+            if (notify) toaster.show('Weather error: data not found.', 'error');
+            return null;
+        }
+        return response;
+    } catch (error) {
+        if (notify) toaster.show('Weather error: request failed.', 'error');
         return null;
     }
 }
@@ -82,16 +136,66 @@ let weather = null;
 let cachedPosition = null ; 
 let cachedWeather = null; 
 
+const withPositionPromptActions = (message) => {
+  toaster.show(message, "error", 0, [
+    {
+      label: "Use geolocation",
+      onClick: async () => {
+        const geoPosition = await getPositionByGeolocation(true);
+        if (!geoPosition) return;
+        await storeToCache("position", geoPosition);
+        const geoWeather = await getWeatherByCoords(geoPosition.latitude, geoPosition.longitude, geoPosition.USA, true);
+        if (!geoWeather) return;
+        await storeToCache("weather", geoWeather);
+        await render(geoPosition, geoWeather);
+        renderForecast(geoWeather);
+      }
+    },
+    {
+      label: "Set city manually",
+      onClick: async () => {
+        const city = window.prompt("Enter city name");
+        if (!city) return;
+        const country = window.prompt("Enter country (optional)");
+        const manualPosition = await getLocationByManualCity(city, country || "", true);
+        if (!manualPosition) return;
+        await storeToCache("position", manualPosition);
+        const manualWeather = await getWeatherByCoords(manualPosition.latitude, manualPosition.longitude, manualPosition.USA, true);
+        if (!manualWeather) return;
+        await storeToCache("weather", manualWeather);
+        await render(manualPosition, manualWeather);
+        renderForecast(manualWeather);
+      }
+    }
+  ]);
+};
+
 export const setup = async () => {
+  // Offline-first: render immediate fallback UI, then hydrate with live weather if available.
+  await renderOfflineClock();
+
   // Ensure weather icons mapping is loaded before rendering
   await loadWeatherIconsMapping();
  
+  const preferences = await getPreferences();
+  const locationMethod = preferences.locationMethod || "ip";
+  const manualCity = preferences.manualCity || "";
+  const manualCountry = preferences.manualCountry || "";
+
   cachedPosition  = await getFromCache('position');
   cachedWeather = await getFromCache('weather'); 
 
   if(!cachedPosition){
-    position = await getLocationByIp();
-    if(!position) position = await getPositionByGeolocation(); 
+    if (locationMethod === "manual") {
+      position = await getLocationByManualCity(manualCity, manualCountry, true);
+    } else if (locationMethod === "geolocation") {
+      position = await getPositionByGeolocation(true);
+    } else {
+      position = await getLocationByIp(false);
+      if (!position) {
+        withPositionPromptActions("IP location failed. Choose another location method.");
+      }
+    }
     position && await storeToCache('position', position); 
   }else {
     position = cachedPosition.position; 
@@ -99,12 +203,7 @@ export const setup = async () => {
   
 
     if (!cachedWeather) {
-        if(!position) {
-            toaster.show('Position not found , check your internet connection...', 'error',10000);
-            return;
-          }
-        weather = await getWeatherByCoords(position.latitude, position.longitude,position.USA);
-        toaster.show('Weather data fetched successfully', 'success');
+        if(position) weather = await getWeatherByCoords(position.latitude, position.longitude,position.USA, false);
         weather && await storeToCache('weather', weather);
     } else {
         weather = cachedWeather.weather;
@@ -113,11 +212,5 @@ export const setup = async () => {
     if(position && weather) {
         await render(position, weather);
         renderForecast(weather);
-    } else {
-        toaster.show('Check your internet connection...', 'error');
-        console.log("no internet connection avalible ");
-        return;
     }
-    
-
 }   

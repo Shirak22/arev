@@ -48,7 +48,7 @@ const getWeatherBackground = (weather_code, is_day = true) => {
     // check if weatherBackgroundsMapping is loaded
     if(!weatherBackgroundsMapping) {
         console.warn('Weather backgrounds mapping not loaded yet, using fallback');
-        return 'clear-day.jpg'; // fallback
+        return { src: "assets/backgrounds/settings.webp" };
     }
     //get the right group of photos 
      const folder = weatherBackgroundsMapping.filter(item => item.codes.includes(weather_code));
@@ -64,5 +64,24 @@ const getWeatherBackground = (weather_code, is_day = true) => {
      }
    
 }
+
+const getRandomBackground = () => {
+    if (!weatherBackgroundsMapping || !Array.isArray(weatherBackgroundsMapping) || weatherBackgroundsMapping.length === 0) {
+        return { src: "assets/backgrounds/settings.webp" };
+    }
+
+    const randomFolder = weatherBackgroundsMapping[Math.floor(Math.random() * weatherBackgroundsMapping.length)];
+    if (!randomFolder?.photos?.length) {
+        return { src: "assets/backgrounds/settings.webp" };
+    }
+
+    const randomPhoto = randomFolder.photos[Math.floor(Math.random() * randomFolder.photos.length)];
+    return {
+        src: `${randomFolder.folder}/${randomPhoto.filename}`,
+        photographer: randomPhoto.photographer,
+        url: randomPhoto.url
+    };
+}
 export { loadWeatherBackgroundsMapping };
+export { getRandomBackground };
 export default getWeatherBackground;

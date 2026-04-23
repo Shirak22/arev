@@ -25,13 +25,39 @@
  */
 
 import getWeatherBackground from "../weather/weather-background.js";
+import { getRandomBackground } from "../weather/weather-background.js";
 import getWeatherDescription from "../weather/weather-description.js";
 import getWeatherIcon from "../weather/weather-icon.js";
 import generateWardrobeAdvice from "../weather/weather-advice.js";
+import { getPreferences } from "../settings-preferences.js";
+
+let offlineClockInterval = null;
+
+const stopOfflineClock = () => {
+    if (offlineClockInterval) {
+        clearInterval(offlineClockInterval);
+        offlineClockInterval = null;
+    }
+}
+
+const preloadBackground = (src) => new Promise((resolve) => {
+    if (!src) {
+        resolve();
+        return;
+    }
+
+    const image = new Image();
+    image.onload = () => resolve();
+    image.onerror = () => resolve();
+    image.src = src;
+});
 
 const render = async (position, weather) => {
+    stopOfflineClock();
     if(!weather) return;
     const mainContainer = document.querySelector('#main-container');
+    const weatherContainer = document.querySelector('#weather-container');
+    const creditsSection = document.querySelector('#photograph-credits');
     const city = document.querySelector('.location-city');
     const time = document.querySelector('.weather-time');
     const icon = document.querySelector('.weather-icon');
@@ -44,7 +70,16 @@ const render = async (position, weather) => {
     const recommendation = document.querySelector('.clothes-recommendation');
     const credits = document.querySelector('.photograph-credits-name');
     const link = document.querySelector('.photograph-credits-link');
-    const background = getWeatherBackground(weather.current.weather_code, weather.current.is_day);
+    const preferences = await getPreferences();
+    const customBackground = preferences.backgroundMode === "custom" ? preferences.customBackgroundUrl : "";
+    const background = customBackground
+        ? { src: customBackground, photographer: "", url: "" }
+        : getWeatherBackground(weather.current.weather_code, weather.current.is_day);
+
+    if (weatherContainer) weatherContainer.style.display = "";
+    if (creditsSection) creditsSection.style.display = customBackground ? "none" : "";
+    const existingOfflineClock = document.querySelector('.offline-clock');
+    if (existingOfflineClock) existingOfflineClock.remove();
 
     city.textContent = position.city + ", " + position.country;
     time.textContent = new Date().toLocaleDateString('en-US', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit' }); //
@@ -60,6 +95,52 @@ const render = async (position, weather) => {
     link.href = background.url;
     
     recommendation.textContent = await generateWardrobeAdvice(weather);
+}
+
+export const renderOfflineClock = async () => {
+    stopOfflineClock();
+
+    const mainContainer = document.querySelector('#main-container');
+    const weatherContainer = document.querySelector('#weather-container');
+    const credits = document.querySelector('#photograph-credits');
+    const creditsName = document.querySelector('.photograph-credits-name');
+    const creditsLink = document.querySelector('.photograph-credits-link');
+    if (!mainContainer || !weatherContainer) return;
+
+    const preferences = await getPreferences();
+    const customBackground = preferences.backgroundMode === "custom" ? preferences.customBackgroundUrl : "";
+    const background = customBackground
+        ? { src: customBackground, photographer: "", url: "" }
+        : getRandomBackground();
+    await preloadBackground(background.src);
+    mainContainer.style.backgroundImage = `url(${background.src})`;
+
+    weatherContainer.style.display = "none";
+    if (credits) credits.style.display = customBackground ? "none" : "";
+    if (creditsName) creditsName.textContent = background.photographer || "Unknown photographer";
+    if (creditsLink) {
+        creditsLink.href = background.url || "#";
+        creditsLink.target = background.url ? "_blank" : "_self";
+    }
+
+    let clockEl = document.querySelector('.offline-clock');
+    if (!clockEl) {
+        clockEl = document.createElement('p');
+        clockEl.className = 'offline-clock';
+        mainContainer.appendChild(clockEl);
+    }
+
+    const updateClock = () => {
+        clockEl.textContent = new Date().toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false
+        });
+    };
+
+    updateClock();
+    offlineClockInterval = setInterval(updateClock, 1000);
 }
 
 export default render;

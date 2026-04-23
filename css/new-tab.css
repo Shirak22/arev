@@ -100,6 +100,18 @@ body {
     overflow: hidden;
 }
 
+.offline-clock {
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: var(--font-weight-light);
+    font-family: 'Roboto Mono', monospace;
+    letter-spacing: 0.08em;
+    color: var(--color-text-primary);
+    text-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.7);
+    background-color: var(--color-overlay-light);
+    border-radius: var(--radius-medium);
+    padding: 0.4em 0.7em;
+}
+
 h1,h2,h3,p,span {
     font-weight: var(--font-weight-thin);
     text-align: center;
@@ -148,10 +160,10 @@ button:hover {
     display: flex;
     justify-content: center; 
     align-items: center;
-    background-image: url('../assets/backgrounds/thunderstorm/51.jpg');
-    background-size: cover;
-    background-position: top center;
-    background-repeat: no-repeat;
+    background-image: url('../assets/backgrounds/thunderstorm/51.webp');
+background-size: cover;
+background-position: top center;
+background-repeat: no-repeat;
     margin: 0;
     padding: 0;
 
@@ -417,10 +429,21 @@ button:hover {
 }
 
 .settings-container {
-    background-image: url('../assets/backgrounds/settings.jpg') !important;
+    background-image: url('../assets/backgrounds/settings.webp') !important;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 0;
+}
+
+.settings-container #weather-container {
+    height: auto;
+    max-height: calc(100vh - 2rem);
+    overflow-y: auto;
+    margin: 0 auto;
 }
 
 .settings-title{    
@@ -467,6 +490,82 @@ button:hover {
 }
 .settings-settings-buttons-container button{
    margin-top: 1.2rem;
+}
+
+.settings-location-value {
+    text-align: left;
+    width: 100%;
+    line-height: 1.5;
+}
+
+.settings-location-methods,
+.settings-background-methods {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    width: 100%;
+    background-color: var(--color-overlay-light);
+    border-radius: var(--radius-medium);
+    padding: var(--spacing-lg);
+}
+
+.settings-location-methods label,
+.settings-background-methods label {
+    display: flex;
+    gap: 0.5rem;
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+    align-items: center;
+}
+
+.settings-manual-location {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.settings-city-input,
+.settings-country-input,
+.settings-background-input {
+    width: 100%;
+    border: 0;
+    border-radius: var(--radius-small);
+    min-height: 2.5rem;
+    padding: 0.5rem 0.75rem;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.settings-city-suggestions {
+    display: none;
+    width: 100%;
+    max-height: 12rem;
+    overflow-y: auto;
+    border-radius: var(--radius-small);
+    background-color: rgba(0, 0, 0, 0.75);
+}
+
+.settings-city-suggestions.show {
+    display: block;
+}
+
+.settings-city-suggestion-item {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    background: transparent;
+    color: var(--color-text-primary);
+    text-align: left;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+}
+
+.settings-city-suggestion-item:last-child {
+    border-bottom: 0;
+}
+
+.settings-city-suggestion-item:hover {
+    background-color: rgba(255, 255, 255, 0.12);
 }
 
 #settings-footer{
@@ -525,7 +624,7 @@ button:hover {
     
 }
 .privacy-container {
-    background: url('../assets/backgrounds/settings.jpg') no-repeat center center;
+    background: url('../assets/backgrounds/settings.webp') no-repeat center center;
     display: flex;
     flex-direction: column;
 }

@@ -1,7 +1,8 @@
 export const toaster = {
     timeoutId: null,
-    show: (message, type, duration=3000) => {
+    show: (message, type, duration=3000, actions = []) => {
         const toasterEl = document.querySelector('.toaster');
+        if (!toasterEl) return;
         
         // Clear any existing timeout
         if (toaster.timeoutId) {
@@ -18,12 +19,49 @@ export const toaster = {
             toasterEl.classList.add('info');
         }
         toasterEl.classList.add('show');
-        toasterEl.innerHTML = message;
+        toasterEl.innerHTML = '';
+
+        const messageEl = document.createElement('p');
+        messageEl.className = 'toaster-message';
+        messageEl.textContent = message;
+        toasterEl.appendChild(messageEl);
+
+        if (Array.isArray(actions) && actions.length > 0) {
+            const actionsEl = document.createElement('div');
+            actionsEl.className = 'toaster-actions';
+
+            actions.forEach((action) => {
+                if (!action?.label || typeof action.onClick !== 'function') return;
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'toaster-action-btn';
+                button.textContent = action.label;
+                button.addEventListener('click', () => {
+                    action.onClick();
+                    toaster.hide();
+                });
+                actionsEl.appendChild(button);
+            });
+
+            if (actionsEl.childElementCount > 0) {
+                toasterEl.appendChild(actionsEl);
+            }
+        }
         
-        // Store timeout ID and remove both show and type classes when hiding
-        toaster.timeoutId = setTimeout(() => {
-            toasterEl.classList.remove('show', 'error', 'success', 'info');
+        if (duration > 0) {
+            toaster.timeoutId = setTimeout(() => {
+                toaster.hide();
+            }, duration);
+        }
+    },
+    hide: () => {
+        const toasterEl = document.querySelector('.toaster');
+        if (!toasterEl) return;
+        if (toaster.timeoutId) {
+            clearTimeout(toaster.timeoutId);
             toaster.timeoutId = null;
-        }, duration);
+        }
+        toasterEl.classList.remove('show', 'error', 'success', 'info');
+        toasterEl.innerHTML = '';
     }
 }
