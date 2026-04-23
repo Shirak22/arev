@@ -568,6 +568,7 @@ background-repeat: no-repeat;
     background-color: rgba(255, 255, 255, 0.12);
 }
 
+.settings-header,
 #settings-footer{
     display: flex;
     flex-direction: column;
@@ -582,6 +583,7 @@ background-repeat: no-repeat;
     padding: var(--spacing-lg) var(--spacing-lg);
 }
 
+.settings-header img,
 #settings-footer img {
     max-width: 100px; 
     height: auto;

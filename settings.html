@@ -50,66 +50,65 @@
 </head>
 
 <body>
-    <section id="main-container" class="settings-container">
-        <main id="weather-container">
-            <header id="weather-header">
-                <h3 class="settings-title">Settings</h3>
+    <section id="main-container" class="privacy-container">
+        <section id="settings-content">
+            <section class="settings-content-container">
+                <div class="privacy-content">
+                    <header class="settings-header">
+                        <img src="assets/logo/icon_512.png" alt="Arev Logo">
+                    </header>
+                    <h3 class="settings-title">Settings</h3>
 
-            </header>
-            <section id="settings-content">
-                <h3 class="settings-title"><span><svg xmlns="http://www.w3.org/2000/svg"
-                            viewBox="0 0 640 640"><!--!Font Awesome Free v7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
-                            <path
-                                d="M128 252.6C128 148.4 214 64 320 64C426 64 512 148.4 512 252.6C512 371.9 391.8 514.9 341.6 569.4C329.8 582.2 310.1 582.2 298.3 569.4C248.1 514.9 127.9 371.9 127.9 252.6zM320 320C355.3 320 384 291.3 384 256C384 220.7 355.3 192 320 192C284.7 192 256 220.7 256 256C256 291.3 284.7 320 320 320z" />
-                        </svg></span>Location</h3>
-                <section class="settings-content-container">
-                    <section class="settings-location-container">
-                        <p class="settings-location-value">No location data yet.</p>
-                    </section>
-                    <section class="settings-location-methods">
-                        <label><input type="radio" name="location-method" value="ip" checked> IP (default)</label>
-                        <label><input type="radio" name="location-method" value="manual"> Set manually</label>
-                        <label><input type="radio" name="location-method" value="geolocation"> Geolocation</label>
-                    </section>
-                    <section class="settings-manual-location">
-                        <input class="settings-city-input" type="text" placeholder="City">
-                        <input class="settings-country-input" type="text" placeholder="Country (optional)">
-                        <div class="settings-city-suggestions" role="listbox" aria-label="City suggestions"></div>
-                    </section>
-                    <button class="settings-refresh-button">
-                        <img src="assets/icons/svg/refresh.svg" alt="refresh Icon">
-                        Save and refresh location
-                    </button>
-                </section>
-
-                <h3 class="settings-title">Background</h3>
-                <section class="settings-content-container">
-                    <section class="settings-location-container">
-                        <section class="settings-background-methods">
-                            <label><input type="radio" name="background-mode" value="dynamic" checked> Dynamic background</label>
-                            <label><input type="radio" name="background-mode" value="custom"> Set your own background</label>
+                    <h4 class="privacy-section-title">Location</h4>
+                    <section class="settings-content-container">
+                        <section class="settings-location-container">
+                            <p class="settings-location-value">No location data yet.</p>
                         </section>
-                        <input class="settings-background-input" type="url" placeholder="https://example.com/background.jpg">
-                        <button class="settings-save-background-button">Save background preference</button>
+                        <section class="settings-location-methods">
+                            <label><input type="radio" name="location-method" value="ip" checked> IP (default)</label>
+                            <label><input type="radio" name="location-method" value="manual"> Set manually</label>
+                            <label><input type="radio" name="location-method" value="geolocation"> Geolocation</label>
+                        </section>
+                        <section class="settings-manual-location">
+                            <input class="settings-city-input" type="text" placeholder="City">
+                            <input class="settings-country-input" type="text" placeholder="Country (optional)">
+                            <div class="settings-city-suggestions" role="listbox" aria-label="City suggestions"></div>
+                        </section>
+                        <button class="settings-refresh-button">
+                            <img src="assets/icons/svg/refresh.svg" alt="refresh Icon">
+                            Save and refresh location
+                        </button>
                     </section>
-                </section>
 
-                <h3 class="settings-title">More</h3>
-                <section class="settings-content-container">
-                    <div class="settings-settings-buttons-container">
-                        <button type="button" class="settings-about-button">About</button>
-                        <button type="button" class="settings-terms-button">Credits</button>
-                    </div>
-                </section>
-            </section>
-            <footer id="settings-footer">
-                <img src="assets/logo/icon_512.png" alt="Arev Logo">
-                <p class="settings-footer-text">© 2025 Shirak Soghomonian</p>
-                <div class="settings-footer-buttons-container">
-                    <a class="settings-footer-buttons-container-link" href="privacy.html">Privacy</a>
+                    <h4 class="privacy-section-title">Background</h4>
+                    <section class="settings-content-container">
+                        <section class="settings-location-container">
+                            <section class="settings-background-methods">
+                                <label><input type="radio" name="background-mode" value="dynamic" checked> Dynamic background</label>
+                                <label><input type="radio" name="background-mode" value="custom"> Set your own background</label>
+                            </section>
+                            <input class="settings-background-input" type="url" placeholder="https://example.com/background.jpg">
+                            <button class="settings-save-background-button">Save background preference</button>
+                        </section>
+                    </section>
+
+                    <h4 class="privacy-section-title">More</h4>
+                    <section class="settings-content-container">
+                        <div class="settings-settings-buttons-container">
+                            <button type="button" class="settings-about-button">About</button>
+                            <button type="button" class="settings-terms-button">Credits</button>
+                        </div>
+                    </section>
+
+                    <footer id="settings-footer">
+                        <p class="settings-footer-text">© 2025 Shirak Soghomonian</p>
+                        <div class="settings-footer-buttons-container">
+                            <a class="settings-footer-buttons-container-link" href="privacy.html">Privacy</a>
+                        </div>
+                    </footer>
                 </div>
-            </footer>
-        </main>
+            </section>
+        </section>
     </section>
     <div class="toaster"></div>
     <script src="js/settings.js" type="module" ></script>
